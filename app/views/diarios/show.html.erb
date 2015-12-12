@@ -1,0 +1,74 @@
+<% provide(:title, "Comprobante") %>
+<% provide(:sub_title, "Consulta")  %>
+
+
+<div class="row">
+  <div class="separator" >
+    <div class="medium-12 columns" >
+  <strong>Fecha: </strong>
+   <%= @diario.fechacbte.strftime("%d-%m-%Y") %><br/>   
+   <strong>Tipo: </strong>
+   <%= @diario.tipocomprobante.nombre %>
+   <strong>Nro.: </strong>
+   <%= @diario.nrocbte %><br/>    
+   <strong>TC.: </strong><%= @diario.tc %><br/>   
+   <p align="left"><strong>Glosa: </strong><%= @diario.glosagral %></p>  
+   
+   </div>
+   </div>
+</div>
+<b></b>
+
+<div class="row">
+  <div class="separator" >
+    <div class="medium-12 columns" >
+      <table id= "diario_consulta"> 
+        <thead> 
+          <tr> 
+            
+            <th width="50" >Iten</th> 
+            <th>Cuenta</th> 
+            <th>L.Aux.</th> 
+            <th>Moneda</th> 
+            <th>Debe</th> 
+            <th>Haber</th> 
+           
+          </tr> 
+        </thead> 
+
+
+        <tbody>
+    		<% @diario.diariodets.each do |asiento| %>
+		      <tr>
+		        <td><%= asiento.item %></td>
+		        <td><%= [asiento.catalogo.codigo, asiento.catalogo.nombre].join(" ") %></td>
+            <% if asiento.libauxdet_id != 0 %> 
+              <td><%= asiento.libauxdet.name %></td>
+            <% else %>
+              <td></td>
+            <% end %>
+            <td><%= asiento.moneda.sigla %></td>
+		        <td><%= asiento.debe.round(2) %></td>
+		        <td><%= asiento.haber.round(2) %></td>
+		      </tr>
+    		<% end %>
+  		</tbody> 
+      <tfoot>
+            <td>TOTAL:</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td><%= @diario.diariodets.sum(:debe).round(2) %></td>
+            <td><%= @diario.diariodets.sum(:haber).round(2) %></td>
+      </tfoot>
+      </table>
+    </div>  
+  </div>
+</div>
+
+
+</p>
+
+<%= link_to 'Edit', edit_diario_path(@diario) %> |
+<%= link_to 'Back', diarios_path %> |
+<%= link_to 'Imprimir', diario_path(@diario, format:"pdf") %>

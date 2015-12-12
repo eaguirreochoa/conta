@@ -1,0 +1,55 @@
+# # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# one:
+#   nombre: 
+#   esbalance: 
+#   esestresul: 
+#   naturaleza: MyString
+
+# two:
+# 	nombre: 
+#   esbalance: 
+#   esestresul: 
+#   naturaleza: MyString
+
+one:
+	nombre: ACTIVO
+	esbalance: t
+	esestresul: f
+	naturaleza: D
+
+two:
+	nombre: PASIVO
+	esbalance: t
+	esestresul: f
+	naturaleza: A
+
+three:
+	nombre: PATRIMONIO
+	esbalance: f
+	esestresul: f
+	naturaleza: A
+
+four:
+	nombre: CUENTAS DE GASTO
+	esbalance: f
+	esestresul: t
+	naturaleza: D
+
+five:
+	nombre: CUENTAS DE INGRESO
+	esbalance: f
+	esestresul: t
+	naturaleza: A
+
+six:
+	nombre: CUENTAS DE ORDEN DEUDORAS
+	esbalance: t
+	esestresul: f
+	naturaleza: D
+
+seven:
+	nombre: CUENTAS DE ORDEN ACREEDORAS
+	esbalance: t
+	esestresul: f
+	naturaleza: A

@@ -1,0 +1,59 @@
+<% provide(:title, "Cierre del Periodo") %>
+<% if @cierre.id == nil %>      
+  <% provide(:sub_title, "Nuevo") %>
+<% else %>
+  <% provide(:sub_title, "Edicion")  %>
+<% end %>
+
+ <% flash.each do |severity, message| %>
+    <div data-alert class='alert-box <%= severity %>' role='dialog'>
+      <%= message %>
+      <a href='#' class='close flash-data-alert'>&times;</a>
+    </div>
+  <% end %>
+
+<%= form_for(@cierre) do |f| %>
+
+  <fieldset>
+    
+    <div class="row">
+      <div class="small-3 columns<%= @cierre.errors[:fechaproceso].any? ? " error" : "" %>">
+        <label>Del
+        <%= f.date_field :fechaproceso, :readonly => true %>
+        <% unless @cierre.errors[:fechaproceso].blank? %>
+                <small class='error'><%= @cierre.errors[:fechaproceso].join(", ").html_safe %></small>
+        <% end %>
+        </label>
+      </div>
+    </div>    
+    
+    <div class="row">
+      <div class="small-6 columns<%= @cierre.errors[:desc].any? ? " error" : "" %>">
+        <label>Concepto<small>*</small>
+        <%= f.text_field :desc %>  
+        <% unless @cierre.errors[:desc].blank? %>
+                <small class='error'><%= @cierre.errors[:desc].join(", ").html_safe %></small>
+        <% end %>
+        </label>
+      </div>
+
+      <div class="small-3 columns">
+      </div>
+    </div>    
+
+   
+  </fieldset>
+  <%= f.hidden_field :activo %> 
+  <%= f.hidden_field :tipo %> 
+  <%= f.hidden_field :empresa_id %> 
+  <%= f.hidden_field :periodo_id %> 
+  
+  
+  <% if @cierre.id == nil %> 
+    <%= f.submit "Grabar", :class => 'small button' %>   
+  <% else %>
+    <%= f.submit "Anular", :class => 'small button alert' %>
+  <% end %>
+
+
+<% end %>

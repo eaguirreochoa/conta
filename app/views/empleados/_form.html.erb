@@ -1,0 +1,190 @@
+<% provide(:title, "Empleados") %>
+<% if @empleado.id == nil %>      
+  <% provide(:sub_title, "Nuevo") %>
+<% else %>
+  <% provide(:sub_title, "Edicion")  %>
+<% end %>
+
+<%= form_for(@empleado) do |f| %>
+
+  <fieldset>
+    <legend>Datos basicos</legend>
+    <div class="row">
+      
+      <div class="large-6 columns<%= @empleado.errors[:Nombres].any? ? " error" : "" %>">
+        <label>Nombres <small>*</small>
+        <%= f.text_field :Nombres %>   
+        <% unless @empleado.errors[:Nombres].blank? %>
+                <small class='error'><%= @empleado.errors[:Nombres].join(", ").html_safe %></small>
+        <% end %>
+        </label>
+      </div>
+
+      <div class="large-5 columns">
+        <%= f.label :apellido_paterno,"Apellido Paterno" %>
+        <%= f.text_field :Appaterno %>
+      </div>
+    
+    </div>
+
+    <div class="row">
+      <div class="large-5 columns">
+        <%= f.label :apellido_materno,"Apellido Materno" %>
+        <%= f.text_field :Apmaterno %>
+      </div>      
+    </div>
+
+    <div class="row">  
+      <div class="large-4 columns">
+        <%= f.label :estadocivil,"Estado Civil" %>        
+        <%= f.collection_select :estadocivil, Empleado::HESTADOCIVIL, :first, :last, prompt: false %>
+        
+      </div>    
+      <div class="large-5 columns<%= @empleado.errors[:Apcasada].any? ? " error" : "" %>">
+        <%= f.label :Apcasada,"Apellido Casada" %>
+        <%= f.text_field :Apcasada %>
+        <% unless @empleado.errors[:Apcasada].blank? %>
+                <small class='error'><%= @empleado.errors[:Apcasada].join(", ").html_safe %></small>
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">  
+      <div class="large-5 columns<%= @empleado.errors[:fechanacimiento].any? ? " error" : "" %>">
+        <%= f.label :fechanacimiento,"Fecha de Nacimiento" %>
+        <% if @empleado.fechanacimiento != nil %>      
+          <%= f.date_field :fechanacimiento, :default => @empleado.fechanacimiento.strftime("%d/%m/%Y") %>
+        <% else %>
+          <%= f.date_field :fechanacimiento, :default => Time.now.strftime("%d/%m/%Y") %>
+        <% end %>
+        <% unless @empleado.errors[:fechanacimiento].blank? %>
+                <small class='error'><%= @empleado.errors[:fechanacimiento].join(", ").html_safe %></small>
+        <% end %>
+      </div>
+      <div class="large-5 columns">
+        <%= f.label :genero, "Genero" %>          
+        <%= f.collection_radio_buttons(:genero, Empleado::HGENERO, :first, :last, prompt: true) do |b| %>
+          <tr>
+          <%= b.label(:"data-value" => b.value) { b.radio_button + b.text } %></td>
+          </tr> 
+        <% end %>
+      </div>
+    </div>
+
+    <div class="row">  
+      <div class="large-5 columns<%= @empleado.errors[:Di].any? ? " error" : "" %>">
+        <div class="row collapse">
+          <%= f.label :Di, "Documento de Identificacion" %>
+           <div class="small-3 columns">
+            <%= f.select :Dociden_id, @dis.map{ |c| [c.Sigla, "#{c.id}"] } %>
+          </div>
+          <div class="small-6 columns">
+            <%= f.text_field :Di %>
+            <% unless @empleado.errors[:Di].blank? %>
+                <small class='error'><%= @empleado.errors[:Di].join(", ").html_safe %></small>
+            <% end %>
+          </div>
+          <div class="small-3 columns">
+           <%= collection_select(:post, :docidenexts_id, Docidenext.all, :id, :Sigla) %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">  
+      <div class="large-5 columns<%= @empleado.errors[:Telefono].any? ? " error" : "" %>">
+        <%= f.label :Telefono %>
+        <%= f.text_field :Telefono %>
+        <% unless @empleado.errors[:Telefono].blank? %>
+                <small class='error'><%= @empleado.errors[:Telefono].join(", ").html_safe %></small>
+        <% end %>
+      </div>
+      <div class="large-5 columns<%= @empleado.errors[:Correo].any? ? " error" : "" %>">
+        <%= f.label :Correo %>
+        <%= f.text_field :Correo %>
+        <% unless @empleado.errors[:Correo].blank? %>
+                <small class='error'><%= @empleado.errors[:Correo].join(", ").html_safe %></small>
+        <% end %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Datos empresa</legend>
+    <div class="row">
+      <div class="large-5 columns">
+        <label>Oficina <small>required</small> 
+          <%= f.select :Oficina_id, @oficinas.map{ |c| [c.Sigla, "#{c.id}"] } %>
+        </label>
+      </div>
+      <div class="large-7 columns">
+        <label>Cargo <small>required</small>    
+          <%= f.select :Cargo_id, @cargos.map{ |c| [c.Nombre, "#{c.id}"] } %>
+        </label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="large-5 columns<%= @empleado.errors[:fechaingreso].any? ? " error" : "" %>">
+        <%= f.label :fechaingreso,"Fecha de Ingreso" %>  
+        <% if @empleado.fechaingreso != nil %>
+          <%= f.date_field :fechaingreso, :default => @empleado.fechaingreso.strftime("%d/%m/%Y") %>
+        <% else %>
+          <%= f.date_field :fechaingreso, :default => Time.now.strftime("%d/%m/%Y") %>
+        <% end %>
+        <% unless @empleado.errors[:fechaingreso].blank? %>
+                <small class='error'><%= @empleado.errors[:fechaingreso].join(", ").html_safe %></small>
+        <% end %>
+      </div>
+    </div>
+  </fieldset>
+
+  <fieldset>
+    <legend>Datos domicilio</legend>
+
+    <%= f.fields_for :Direccions do |direccion_fields| %>
+      <div class="row">
+        <div class="large-6 columns">
+          <%= direccion_fields.label :Zonaurbana,"Zona/Ubanizacion" %>
+          <%= direccion_fields.text_field :Zonaurbana %>   
+        </div>
+        <div class="large-6 columns">
+          <%= direccion_fields.label :Edificio %>
+          <%= direccion_fields.text_field :Edificio %>   
+         </div>
+      </div>
+      <div class="row">
+        <div class="large-6 columns">
+          <%= direccion_fields.label :Pisodepof,"Piso/Departamento" %>
+          <%= direccion_fields.text_field :Pisodepof %>  
+        </div>    
+        <div class="large-6 columns">  
+          <%= direccion_fields.label :Descripcion %>
+          <%= direccion_fields.text_field :Descripcion %>    
+        </div>
+      </div>  
+
+      <div class="row">
+        <div class="large-6 columns">
+        <%= direccion_fields.label :departamento, "Departamento" %>
+        <%= direccion_fields.select :ubigeo_departamento, @departamentos.map{ |c| [c.Nombredept, "#{c.Codigodept}"] }, {}, { id:"departamentos_select"} %>
+        </div>
+        
+       <div class="large-6 columns">
+        <%= direccion_fields.label :provincia, "Provincia" %>
+        <%= direccion_fields.select :ubigeo_provincia, @provincias.map{ |c| [c.Nombreprov, "#{c.Codigoprov}"] }, {}, { id:"provincias_select"} %>
+        </div>
+      </div>  
+      <div class="row">
+        <div class="large-6 columns">
+        <%= direccion_fields.label :localidad, "Localidad" %>
+        <%= direccion_fields.select :Ubicaciongeografica_id, @localidades.map{ |c| [c.Nombreloca, "#{c.id}"] }, {}, { id:"localidades_select"} %>
+        </div>
+      </div>  
+    
+    <% end %>      
+      
+   
+  </fieldset>  
+  <%= f.submit 'Grabar', :class => 'small button' %>
+<% end %>

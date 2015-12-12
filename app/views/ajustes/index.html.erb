@@ -1,0 +1,30 @@
+<% provide(:title, "Ajustes") %>
+<% provide(:sub_title, "Listado") %>
+<p id="notice"><%= notice %></p> 
+
+<h1></h1> 
+<div class="row">
+  <div class="separator" >
+    <div class="medium-12 columns" >
+      <table id= "ajustes_table"> 
+        <thead> 
+          <tr> 
+            <th style="display: none">ID </th>
+            <th>FECHA</th> 
+            <th>INDICE ANT.</th> 
+            <th>INDICE ACT.</th> 
+            <th>ACTIVO</th> 
+            <th></th> 
+            <th></th>
+            <th></th>
+          </tr> 
+        </thead> 
+
+        <tbody></tbody> 
+      </table>
+    </div>  
+  </div>
+</div>
+    <br> 
+
+<%= link_to 'Nuevo', new_ajuste_path, :class => 'small button'  %>

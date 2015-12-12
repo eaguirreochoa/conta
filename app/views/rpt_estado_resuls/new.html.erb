@@ -1,0 +1,56 @@
+<% provide(:title, "Estado de Resultados") %>
+<% provide(:sub_title, "Impresion")  %>
+      
+    
+<%= form_for @rpt_estado_resul do |f| %>
+  <% if @rpt_estado_resul.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= "#{pluralize(@rpt_estado_resul.errors.count, "error")} prohibited this rpt_balance_gral from being sent:" %>
+      </h2>
+
+      <ul>
+        <% @rpt_estado_resul.errors.full_rpt_balance_grals.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      <ul>
+    </div>
+  <% end %>
+
+	   <div class="row">      
+      <div class="small-4 columns">
+        <%= f.label :f_ini, "Fecha Inicial" %>
+        <%= f.date_field :f_ini, value: @rpt_estado_resul.inicio_ciclo.strftime("%Y-%m-%d"), :readonly => true  %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :f_fin, "Fecha final" %>
+        <%= f.date_field :f_fin, value: @rpt_estado_resul.fin_periodo.strftime("%Y-%m-%d") %>
+      </div>
+
+      <div class="small-4 columns">    
+      </div>
+    </div>
+
+    <div class="row">      
+      <div class="small-4 columns">
+        <%= f.label :catalogo_ids, "Nivel (es):" %>
+        <%= f.collection_check_boxes(:catalogo_ids, Nivel.all, :id, :nombre) do |b| %>
+            <%= b.label(class: "checkbox_label") do %>
+                <%= b.check_box(class: "checkbox_box") %>
+                <%= b.object.nombre %>
+            <% end %>
+        <% end %>
+      </div>
+    </div>
+
+    
+
+  <div class="actions">
+    <%= f.button 'Imprimir', :class => 'small button', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Procesando..."} %>
+  </div>
+
+
+<% end %>
+
+

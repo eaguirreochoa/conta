@@ -1,0 +1,47 @@
+
+<tr class="nested-fields">
+  <%= f.hidden_field :id %>
+  <td width="50">
+  <%= f.text_field :item, class: "item_text" %>
+  </td>
+  <td>
+  <%= f.select :oficina_id, @oficinas.map{ |c| [c.Sigla, "#{c.id}"] } %>         
+  </td>
+  <td width="125">
+  <%= f.text_field :catalogo_codigo, class: "catalogo_codigo_change"%>
+  </td>
+  <td  width="280">
+  <%= f.collection_select(:catalogo_id, @catalogos, 
+                                    :id, :nombre, 
+                                    { :prompt => "Select Cuenta" }, 
+                                    { :class => 'catalogo_select'}) %>
+  </td>
+  <td> 
+
+  <% if f.object.libauxdet_id != nil %> 
+    <%= f.select(:libauxdet_id, 
+                  options_for_select(f.object.lista_laux.map { |obj| [obj['name'], obj['id']] },f.object.libauxdet_id),
+                 { :class => 'codtlaux1_select'}) %> 
+  <% else %>  
+    <%= f.select(:libauxdet_id, options_for_select({"" => "0" }),
+                                    { :class => 'codtlaux1_select'}) %>   
+  <% end %> 
+  </td>
+  
+  <td>
+  <%= f.text_field :codtlaux2, class: "codtlaux2_txt", :readonly => true %>
+  </td>
+  <td>
+  <%= f.select :moneda_id, @monedas.map{ |c| [c.sigla, "#{c.id}"] }%>
+  </td>
+  <td width="150">
+    <%= f.number_field :debeori, step: 'any', class: "debeori_number" %>
+  </td>
+  <td width="150">
+    <%= f.number_field :haberori, step: 'any', class: "haberori_number" %>
+  </td>
+  <td>
+  <%= link_to_remove_association 'Borrar', f, class: 'label alert round' %> 
+  </td>
+    <%= f.hidden_field :tlaux2, :value => f.object.tlaux2 %> 
+</tr>

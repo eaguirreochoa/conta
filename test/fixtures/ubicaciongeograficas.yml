@@ -1,0 +1,19 @@
+# s# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# one:
+#   Codigodept: 
+#   Codigoprov: 
+#   Codigoloca: 
+#   Nombredept: 
+#   Nombreprov: 
+#   Nombreloca: 
+#   Activo: false
+
+# two:
+#   Codigodept: 
+#   Codigoprov: 
+#   Codigoloca: 
+#   Nombredept: 
+#   Nombreprov: 
+#   Nombreloca: 
+#   Activo: false

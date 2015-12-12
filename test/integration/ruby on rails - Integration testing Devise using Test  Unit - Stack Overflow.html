@@ -1,0 +1,1309 @@
+<!DOCTYPE html>
+<!-- saved from url=(0085)http://stackoverflow.com/questions/30491480/integration-testing-devise-using-testunit -->
+<html itemscope="" itemtype="http://schema.org/QAPage"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>ruby on rails - Integration testing Devise using Test::Unit - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com">
+    <meta property="og:type" content="website">
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded&amp;a">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="Integration testing Devise using Test::Unit">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="I&#39;ve installed and integrated Devise into my app and now I&#39;m building its testing suite.  I&#39;m using the default testing suite (Test::Unit?) that comes with Rails 4.2.1 and am currently working on the ">
+    <meta property="og:url" content="http://stackoverflow.com/questions/30491480/integration-testing-devise-using-testunit">
+    <link rel="canonical" href="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow.html">
+
+    
+    
+    <script type="text/javascript" async="" src="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/ados"></script><script async="" src="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/quant.js"></script><script async="" src="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/beacon.js"></script><script async="" src="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/analytics.js"></script><script type="text/javascript" async="" src="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/ados.js"></script><script src="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/jquery.min.js"></script>
+    <script src="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/stub.en.js"></script>
+    <link rel="stylesheet" type="text/css" href="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;Integration testing Devise using Test::Unit&#39;" href="http://stackoverflow.com/feeds/question/30491480">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/30491480/integration-testing-devise-using-testunit">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/30491480/integration-testing-devise-using-testunit">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/30491480/integration-testing-devise-using-testunit">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:3,shownCommentCount:3,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:30491480});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '30491480');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","serverTime":1446274803,"networkMetaHostname":"meta.stackexchange.com","routeName":"Questions/Show","styleCode":true,"enableUserHovercards":true,"snippets":{"enabled":true,"domain":"stacksnippets.net"},"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"globalAuthDisabled":true,"nonAsciiTags":true,"enableSocialMediaInSharePopup":true},"user":{"fkey":"1baaa1a73d7ebc3986aa56e98579fcc0","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true,"ab":{"simplified_signup_form":{"v":"a","g":1},"mobile_signup_link":{"v":"a","g":1},"profile_integration_signup":{"v":"careers_pitch","g":2}}}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"5ba5fc43fd7a","js/moderator.en.js":"c1cefcfb20e6","js/full-anon.en.js":"621f0f7961f7","js/full.en.js":"ef10e285ee7f","js/wmd.en.js":"57ffd47650d7","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"29565a2cda87","js/help.en.js":"1b032ba0392d","js/tageditor.en.js":"f33517cbd4f8","js/tageditornew.en.js":"caeeba3ec58f","js/inline-tag-editing.en.js":"b3706a5ace49","js/revisions.en.js":"df3cb25dfabf","js/review.en.js":"7d419fbbb020","js/tagsuggestions.en.js":"bb4721d888d2","js/post-validation.en.js":"95be40f3554c","js/explore-qlist.en.js":"d33e3ab2f2e0","js/events.en.js":"36429326901e","js/keyboard-shortcuts.en.js":"e24065912b4a","js/external-editor.en.js":"6484cd83ad12","js/external-editor.en.js":"6484cd83ad12","js/snippet-javascript.en.js":"9c7ae87a3301","js/snippet-javascript-codemirror.en.js":"70313288b5dc"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    
+    
+<script async="" src="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/full-anon.en.js"></script><script async="" src="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/snippet-javascript.en.js"></script><script async="" src="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/post-validation.en.js"></script><script async="" src="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/prettify-full.en.js"></script><script async="" src="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/external-editor.en.js"></script><script type="text/javascript" src="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/adFeedback.js"></script><link rel="stylesheet" href="http://static.adzerk.net/Extensions/adFeedback.css"><script async="" src="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/p.js"></script><link type="text/css" rel="stylesheet" href="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/jobs.min.css"></head>
+<body class="question-page new-topbar">
+    <noscript>&lt;div id="noscript-padding"&gt;&lt;/div&gt;</noscript>
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+
+
+
+
+<div class="topbar">
+    <div class="topbar-wrapper">
+
+        <div class="js-topbar-dialog-corral">
+
+
+<div class="topbar-dialog siteSwitcher-dialog dno">
+    <div class="header">
+        <h3><a href="http://stackoverflow.com/">current community</a></h3>
+    </div>
+    <div class="modal-content current-site-container">
+        <ul class="current-site">
+                <li>
+                        <div class="related-links">
+                    <a href="http://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+            </div>
+
+
+
+
+    <a href="http://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="
+        site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                </li>
+                <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    
+
+
+
+    <a href="http://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="
+            site.switch({ target_site:552, item_type:3 }),
+        site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                </li>
+                            <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    <a class="site-link js-gps-track" href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&utm_medium=site-ui&utm_campaign=multicollider" data-gps-track="site_switcher.click({ item_type:9 })">
+                        <div class="site-icon favicon favicon-careers" title="Stack Overflow Careers"></div>
+                        Stack Overflow Careers
+                    </a>
+                </li>
+        </ul>
+    </div>
+    
+    <div class="header" id="your-communities-header">
+        <h3>
+your communities        </h3>
+            
+    </div>
+    <div class="modal-content" id="your-communities-section">
+            
+            <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f30491480%2fintegration-testing-devise-using-testunit" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f30491480%2fintegration-testing-devise-using-testunit" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+            </div>
+    </div>
+    
+    <div class="header">
+        <h3><a href="http://stackexchange.com/sites">more stack exchange communities</a></h3>
+        <a href="http://blog.stackoverflow.com/" class="fr">company blog</a>
+    </div>
+    <div class="modal-content">
+            <div class="child-content"></div>
+    </div>
+</div>
+        </div>
+
+        <div class="network-items">
+
+            <a href="http://stackexchange.com/" class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 150 Stack Exchange sites">
+                <span class="hidden-text">Stack Exchange</span>
+            </a>
+
+    <a href="http://stackoverflow.com/questions/30491480/integration-testing-devise-using-testunit#" class="topbar-icon icon-inbox yes-hover js-inbox-button" title="Recent inbox messages">
+        <span class="hidden-text">Inbox</span>
+        <span class="unread-count" style="display:none"></span>
+    </a>
+    <a href="http://stackoverflow.com/questions/30491480/integration-testing-devise-using-testunit#" class="topbar-icon icon-achievements yes-hover js-achievements-button" data-unread-class="" title="Recent achievements: reputation, badges, and privileges earned">
+        <span class="hidden-text">Reputation and Badges</span>
+        <span class="unread-count" style="display:none">
+            
+        </span>
+    </a>
+        </div>
+
+        <div class="topbar-links">
+
+                <div class="links-container">
+                <span class="topbar-menu-links">
+                                    <a href="https://stackoverflow.com/users/signup?ssrc=head&returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f30491480%2fintegration-testing-devise-using-testunit" class="login-link">sign up</a>
+                                <a href="https://stackoverflow.com/users/login?ssrc=head&returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f30491480%2fintegration-testing-devise-using-testunit" class="login-link">log in</a>
+
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                            <a href="http://stackoverflow.com/questions/30491480/integration-testing-devise-using-testunit#" class="icon-help js-help-button" title="Help Center and other resources">
+        help
+        <span class="triangle"></span>
+    </a>
+    <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="http://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                    <li>
+                        <a href="http://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                            Meta
+                            <span class="item-summary">
+                                Discuss the workings and policies of this site
+                            </span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+
+                            <a href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&utm_medium=site-ui&utm_campaign=anon-topbar">stack overflow careers</a>
+                    </span>
+                </div>
+
+            <div class="search-container">
+                <form id="search" action="http://stackoverflow.com/search" method="get" autocomplete="off">
+                    <input name="q" type="text" placeholder="search" value="" tabindex="1" autocomplete="off" maxlength="240">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+    </script>
+
+    <div class="container">
+        <div id="header">
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/">
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://stackoverflow.com/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="http://stackoverflow.com/tags">Tags</a></li>
+                        <li><a id="nav-users" href="http://stackoverflow.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://stackoverflow.com/help/badges">Badges</a></li>
+                        <li><a id="nav-unanswered" href="http://stackoverflow.com/unanswered">Unanswered</a></li>
+                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://stackoverflow.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content" class="snippet-hidden">
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+			<!--googleoff: all-->
+
+<div id="herobox-mini">
+    <div id="hero-content">
+        <span id="controls">
+                <a href="http://stackoverflow.com/users/signup?ssrc=hero&returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f30491480%2fintegration-testing-devise-using-testunit" id="tell-me-more" class="button">Sign up</a>
+            <span id="close"><a title="click to dismiss">×</a></span>
+        </span>
+        <div id="blurb">
+            Stack Overflow is a community of 4.7 million programmers, just like you, helping each other. Join them, it only takes a minute:
+        </div>        
+    </div>
+    <script>
+        StackExchange.ready(function() {
+            var clickSource = $("body").attr("class") + '-mini';
+            var location = 0;
+            if ($("body").hasClass("questions-page")) {
+                clickSource = 'questionpagemini';
+                location = 2;
+            } else if ($("body").hasClass("question-page")) {
+                clickSource = 'questionpagemini';
+                location = 2;
+            } else if ($("body").hasClass("home-page")) {
+                clickSource = 'homepagemini';
+                location = 4;
+            }
+
+            $('#tell-me-more').click(function () {
+                StackExchange.using("gps", function () {
+                    StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
+                });
+            });
+            $('#herobox-mini #close').click(function () {
+                StackExchange.using("gps", function () {
+                    StackExchange.gps.track("hero.action", { hero_action_type: "close", location: location }, true);
+                });
+                $.cookie("hero", "none", { path: "/", expires: 365 });
+                var $hero = $("#herobox-mini");
+                $hero.slideUp('fast', function () { $hero.remove(); });
+                return false;
+            });
+        });
+    </script>
+</div>
+			<!--googleon: all-->
+			<div id="question-header">
+                <h1 itemprop="name"><a href="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow.html" class="question-hyperlink">Integration testing Devise using Test::Unit</a></h1>
+		</div>
+			<div id="mainbar">
+
+			
+
+<div class="question" data-questionid="30491480" id="question">
+
+    <script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1503271553",4).setZone(43); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1503271553"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjoxODY2MjQsImNoIjoxMTc4LCJjayI6e30sImNyIjo2OTU3MTUsImRpIjoiMTA4Mzg4ZTk2NWNmNGRiMDk3NzAzMTVhOWNkN2E2MWIiLCJkbSI6MSwiZmMiOjcyMTgwOSwiZmwiOjQzMTc4MCwiaXAiOiIxODEuMTE1LjE0MC41OSIsImt3IjoicnVieS1vbi1yYWlscyxydWJ5LHJ1Ynktb24tcmFpbHMtNCxkZXZpc2UsaW50ZWdyYXRpb24tdGVzdGluZyIsIm53IjoyMiwicGMiOjAsImVjIjowLCJwciI6MTYwNCwicnQiOjEsInJmIjoiaHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS5iby8iLCJzdCI6ODI3NywidWsiOiJ1ZTEtZDA5NjllNGE5NDQxNDM5MWIzNzllNDFmODNmYjgxZjQiLCJ6biI6NDMsInRzIjoxNDQ2Mjc0ODA0MzE0LCJiZiI6dHJ1ZSwicG4iOiJhZHplcmsxNTAzMjcxNTUzIiwidXIiOiJodHRwOi8vY2FyZWVycy5zdGFja292ZXJmbG93LmNvbS9qb2JzL3JlbW90ZT91dG1fc291cmNlPXN0YWNrb3ZlcmZsb3cuY29tJnV0bV9tZWRpdW09YWQmdXRtX2NhbXBhaWduPWNhbmRpZGF0ZXMtd2ZoJnV0bV9jb250ZW50PWxiLXdmaC1wYWphbWFzIn0&s=KwAM_P8c2vVNiOgA5W-YajYUE4A" rel="nofollow" target="_blank" title=""><img src="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/831a088cf67e42c580e407e2d91c8ce6.jpg" title="" alt="" border="0" width="728" height="90"></a><div class="adzerk-vote-controls" style="display: none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li><li><label><input type="radio" value="16" name="downvoteReason">Other</label></li></ul><a href="http://stackoverflow.com/questions/30491480/integration-testing-devise-using-testunit#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img height="0px" width="0px" border="0" style="position:absolute;" src="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/i.gif"></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="30491480">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="http://stackoverflow.com/questions/30491480/integration-testing-devise-using-testunit#" title="This is a favorite question (click again to undo)">favorite</a>
+        <div class="favoritecount"><b></b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>I've installed and integrated Devise into my app and now I'm building its testing suite.  I'm using the default testing suite (Test::Unit?) that comes with Rails 4.2.1 and am currently working on the integration suite.  </p>
+
+<p><strong>INTEGRATION TEST:</strong></p>
+
+<pre class="lang-rb prettyprint prettyprinted"><code><span class="pln">  </span><span class="kwd">def</span><span class="pln"> setup
+    </span><span class="lit">@user</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="typ">User</span><span class="pun">.</span><span class="pln">create</span><span class="pun">(</span><span class="pln">email</span><span class="pun">:</span><span class="pln"> </span><span class="str">"user@hlist.com"</span><span class="pun">,</span><span class="pln"> 
+                        encrypted_password</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Devise</span><span class="pun">.</span><span class="pln">bcrypt</span><span class="pun">(</span><span class="typ">User</span><span class="pun">,</span><span class="pln"> </span><span class="str">'password1'</span><span class="pun">))</span><span class="pln">
+    </span><span class="lit">@post</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="pln"> title</span><span class="pun">:</span><span class="pln"> </span><span class="str">"This is the title"</span><span class="pun">,</span><span class="pln">
+               content</span><span class="pun">:</span><span class="pln"> </span><span class="str">"Detailed comment."</span><span class="pun">*</span><span class="lit">10</span><span class="pun">,</span><span class="pln">
+               phone</span><span class="pun">:</span><span class="pln"> </span><span class="lit">9991118888</span><span class="pun">,</span><span class="pln">
+               email</span><span class="pun">:</span><span class="pln"> </span><span class="str">"email@hlist.com"</span><span class="pun">,</span><span class="pln">
+               user_id</span><span class="pun">:</span><span class="pln"> users</span><span class="pun">(:</span><span class="pln">spiderman</span><span class="pun">).</span><span class="pln">id </span><span class="pun">}</span><span class="pln">
+    </span><span class="lit">@p</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="lit">@user</span><span class="pun">.</span><span class="pln">posts</span><span class="pun">.</span><span class="pln">build</span><span class="pun">(</span><span class="lit">@post</span><span class="pun">)</span><span class="pln">
+  </span><span class="kwd">end</span><span class="pln">
+
+  test </span><span class="str">"creates a new post successfully"</span><span class="pln"> </span><span class="kwd">do</span><span class="pln"> 
+    sign_in_as</span><span class="pun">(</span><span class="lit">@user</span><span class="pun">)</span><span class="pln">
+    get new_post_path</span><span class="pun">(</span><span class="lit">@user</span><span class="pun">)</span><span class="pln">
+    assert_template </span><span class="str">'posts/new'</span><span class="pln">
+    assert_difference </span><span class="str">'Post.count'</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1</span><span class="pln"> </span><span class="kwd">do</span><span class="pln"> 
+      post posts_path</span><span class="pun">,</span><span class="pln"> post</span><span class="pun">:</span><span class="pln"> </span><span class="lit">@post</span><span class="pln">
+    </span><span class="kwd">end</span><span class="pln">
+    assert_template </span><span class="str">'posts/show'</span><span class="pln">
+  </span><span class="kwd">end</span></code></pre>
+
+<p>I also created the following method in my <strong>test_helper.rb</strong> file:</p>
+
+<pre class="lang-rb prettyprint prettyprinted"><code><span class="pln">  </span><span class="kwd">def</span><span class="pln"> sign_in_as</span><span class="pun">(</span><span class="pln">user</span><span class="pun">)</span><span class="pln">
+     post_via_redirect user_session_path</span><span class="pun">,</span><span class="pln"> </span><span class="str">'user[:email]'</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> user</span><span class="pun">.</span><span class="pln">email</span><span class="pun">,</span><span class="pln"> 
+                           </span><span class="str">'user[:encrypted_password]'</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="typ">Devise</span><span class="pun">.</span><span class="pln">bcrypt</span><span class="pun">(</span><span class="typ">User</span><span class="pun">,</span><span class="pln"> </span><span class="str">'password1'</span><span class="pun">)</span><span class="pln">
+  </span><span class="kwd">end</span></code></pre>
+
+<p>However, I get the following error when I run the test:</p>
+
+<pre class="lang-rb prettyprint prettyprinted"><code><span class="pln">  </span><span class="lit">1</span><span class="pun">)</span><span class="pln"> </span><span class="typ">Failure</span><span class="pun">:</span><span class="pln">
+</span><span class="typ">PostsCrudTest</span><span class="com">#test_creates_a_new_post_successfully [/Users/harishramachandran/dropbox/documents/harish/coding/workspace/h_list/test/integration/posts_crud_test.rb:19]:</span><span class="pln">
+expecting </span><span class="pun">&lt;</span><span class="str">"posts/new"</span><span class="pun">&gt;</span><span class="pln"> but rendering with </span><span class="pun">&lt;[]&gt;</span></code></pre>
+
+<p>I looked for the solution online and all I've been able to find is solutions that involve RSpec or Capybara.  This is an app I'm creating to learn, among other things, the default suite before I move on to RSpec and Capybara in a different app.  Is there a way to resolve this issue in Test::Unit?</p>
+    </div>
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/ruby-on-rails" class="post-tag js-gps-track" title="show questions tagged &#39;ruby-on-rails&#39;" rel="tag">ruby-on-rails</a> <a href="http://stackoverflow.com/questions/tagged/ruby" class="post-tag js-gps-track" title="show questions tagged &#39;ruby&#39;" rel="tag">ruby</a> <a href="http://stackoverflow.com/questions/tagged/ruby-on-rails-4" class="post-tag js-gps-track" title="" rel="tag">ruby-on-rails-4</a> <a href="http://stackoverflow.com/questions/tagged/devise" class="post-tag js-gps-track" title="show questions tagged &#39;devise&#39;" rel="tag">devise</a> <a href="http://stackoverflow.com/questions/tagged/integration-testing" class="post-tag js-gps-track" title="" rel="tag">integration-testing</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/q/30491480" title="short permalink to this question" class="short-link" id="link-post-30491480">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/30491480/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2015-05-27 19:29:29Z" class="relativetime">May 27 at 19:29</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/3799287/harishsr"><div class="gravatar-wrapper-32"><img src="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/af34745270cbc833f0cba942d8507b1e" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/3799287/harishsr">harishsr</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">44</span><span title="6 bronze badges"><span class="badge3"></span><span class="badgecount">6</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-30491480" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-49061519" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I don't think you should pass @user to the <code>get new_post_path(@user)</code> because the get new_post_path is just a form. When you create the post, the create action should take care of creating a post that is associated with the current user. Try <code>get new_post_path</code></span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/4043127/luis-menjivar" title="451 reputation" class="comment-user">Luis Menjivar</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/30491480/integration-testing-devise-using-testunit#comment49061519_30491480"><span title="2015-05-27 19:47:58Z" class="relativetime-clean">May 27 at 19:47</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-49062266" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I just tried that and it's giving me the same eror.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/3799287/harishsr" title="44 reputation" class="comment-user owner">harishsr</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/30491480/integration-testing-devise-using-testunit#comment49062266_30491480"><span title="2015-05-27 20:09:24Z" class="relativetime-clean">May 27 at 20:09</span></a></span>
+                    <span class="edited-yes" title="this comment was edited 2 times"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-49064644" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Is it possible to use Unit::Test integration tests with devise?  Or should I just stick with controller &amp; model tests?</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/3799287/harishsr" title="44 reputation" class="comment-user owner">harishsr</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/30491480/integration-testing-devise-using-testunit#comment49064644_30491480"><span title="2015-05-27 21:28:15Z" class="relativetime-clean">May 27 at 21:28</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-30491480" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/30491480/integration-testing-devise-using-testunit#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								1 Answer
+                                <span style="display:none;" itemprop="answerCount">1</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://stackoverflow.com/questions/30491480/integration-testing-devise-using-testunit?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active">active</a>
+        <a href="http://stackoverflow.com/questions/30491480/integration-testing-devise-using-testunit?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest">oldest</a>
+        <a class="youarehere" href="http://stackoverflow.com/questions/30491480/integration-testing-devise-using-testunit?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes">votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="30511774"></a>
+<div id="answer-30511774" class="answer accepted-answer" data-answerid="30511774" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="30511774">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">3</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="loading when this answer was accepted...">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>After you create your post in <code>post posts_path, post: @post</code> you are not being redirected to the the post/show. Type <code>follow_redirect!</code> right after like so:
+<code>
+post posts_path, post: @post
+follow_redirect!
+</code>
+or alternatively you can do <code>post_via_redirect posts_path, post: @post</code> which will do the same. Post and then redirect to post/show.</p>
+
+<p><strong>A few notes</strong> Devise.bcrypt is deprecated as of a few days ago. So in the future if you update your Gemfile you will get an deprecation error.
+Yes you can do integration tests with Rails default testing. This is an example testing if the user gets the root path with or with out signing in.  </p>
+
+<pre class="lang-rb prettyprint prettyprinted"><code><span class="pln">require </span><span class="str">'test_helper'</span><span class="pln">
+
+</span><span class="kwd">class</span><span class="pln"> </span><span class="typ">UserFlowsTest</span><span class="pln"> </span><span class="pun">&lt;</span><span class="pln"> </span><span class="typ">ActionDispatch</span><span class="pun">::</span><span class="typ">IntegrationTest</span><span class="pln">
+  test </span><span class="str">"user can see home page after login"</span><span class="pln"> </span><span class="kwd">do</span><span class="pln">
+    get user_session_path
+    assert_equal </span><span class="lit">200</span><span class="pun">,</span><span class="pln"> status
+    </span><span class="lit">@david</span><span class="pln"> </span><span class="pun">=</span><span class="pln"> </span><span class="typ">User</span><span class="pun">.</span><span class="pln">create</span><span class="pun">(</span><span class="pln">email</span><span class="pun">:</span><span class="pln"> </span><span class="str">"david@mail.com"</span><span class="pun">,</span><span class="pln"> password</span><span class="pun">:</span><span class="pln"> </span><span class="typ">Devise</span><span class="pun">::</span><span class="typ">Encryptor</span><span class="pun">.</span><span class="pln">digest</span><span class="pun">(</span><span class="typ">User</span><span class="pun">,</span><span class="pln"> </span><span class="str">"helloworld"</span><span class="pun">))</span><span class="pln">
+    post user_session_path</span><span class="pun">,</span><span class="pln"> </span><span class="str">'user[email]'</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln"> </span><span class="lit">@david</span><span class="pun">.</span><span class="pln">email</span><span class="pun">,</span><span class="pln"> </span><span class="str">'user[password]'</span><span class="pln"> </span><span class="pun">=&gt;</span><span class="pln">  </span><span class="lit">@david</span><span class="pun">.</span><span class="pln">password
+    follow_redirect</span><span class="pun">!</span><span class="pln">
+    assert_equal </span><span class="lit">200</span><span class="pun">,</span><span class="pln"> status
+    assert_equal </span><span class="str">"/"</span><span class="pun">,</span><span class="pln"> path
+  </span><span class="kwd">end</span><span class="pln">
+
+  test </span><span class="str">"user can not see home page without login"</span><span class="pln"> </span><span class="kwd">do</span><span class="pln">
+    get </span><span class="str">"/"</span><span class="pln">
+    assert_equal </span><span class="lit">302</span><span class="pun">,</span><span class="pln"> status
+    follow_redirect</span><span class="pun">!</span><span class="pln">
+    assert_equal </span><span class="str">"/users/sign_in"</span><span class="pun">,</span><span class="pln"> path
+    assert_equal </span><span class="lit">200</span><span class="pun">,</span><span class="pln"> status
+  </span><span class="kwd">end</span><span class="pln">
+</span><span class="kwd">end</span></code></pre>
+
+<p>Rails classes for testing (ActiveSupport::TestCase, ActionController::TestCase, ActionMailer::TestCase, ActionView::TestCase and ActionDispatch::IntegrationTest) inherit assertions from <a href="http://docs.seattlerb.org/minitest/Minitest/Assertions.html" rel="nofollow">minitest assertions</a> not <a href="http://ruby-doc.org/stdlib-2.1.0/libdoc/test/unit/rdoc/Test/Unit/Assertions.html" rel="nofollow">test unit</a>. This is true for your Rails version. </p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/30511774" title="short permalink to this answer" class="short-link" id="link-post-30511774">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/30511774/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/30511774/revisions" title="show all edits to this post">edited <span title="2015-09-01 17:49:03Z" class="relativetime">Sep 1 at 17:49</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        <br>
+        
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2015-05-28 16:05:56Z" class="relativetime">May 28 at 16:05</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/4043127/luis-menjivar"><div class="gravatar-wrapper-32"><img src="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/TQN72.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/4043127/luis-menjivar">Luis Menjivar</a><br>
+        <span class="reputation-score" title="reputation score " dir="ltr">451</span><span title="1 silver badge"><span class="badge2"></span><span class="badgecount">1</span></span><span title="7 bronze badges"><span class="badge3"></span><span class="badgecount">7</span></span>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+            
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-30511774" class="comments  dno">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+                        <tr><td></td><td></td></tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-30511774" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/30491480/integration-testing-devise-using-testunit#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="http://stackoverflow.com/questions/30491480/answer/submit" method="post" class="post-form">
+						    <input type="hidden" id="post-id" value="30491480">
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false">
+                            <input type="hidden" name="referrer" value="https://www.google.com.bo/">
+							<h2 class="space">Your Answer</h2>
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.options.snippets.enabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                prepareEditor({
+                    heartbeatType: 'answer',
+                convertImagesToLinks: true,
+                reputationToPostImages: 10,
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                    ,immediatelyShowMarkdownHelp:true
+                    });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="30982f2f637bf0968b26b52d4ff1455a">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+								            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="http://stackoverflow.com/users/login?ssrc=question_page&returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f30491480%2fintegration-testing-devise-using-testunit%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Email and Password</span></p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="manual-openid" class="manual-openid">
+                    <input type="hidden" name="use-facebook" class="use-facebook" value="false">
+                    <input type="hidden" name="use-google" class="use-google" value="false">
+                    <input type="button" class="submit-openid" value="Submit" style="display:none">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', 'http%3a%2f%2fstackoverflow.com%2fquestions%2f30491480%2fintegration-testing-devise-using-testunit%23new-answer', 'question_page');
+                    }
+                );
+            </script>
+            <noscript>
+                        &lt;h3&gt;Post as a guest&lt;/h3&gt;
+    &lt;div class="form-item"&gt;
+        &lt;table&gt;
+        &lt;tr&gt;
+                    &lt;td class="vm"&gt;
+                &lt;div&gt;
+                    &lt;label for="display-name"&gt;Name&lt;/label&gt;
+                    &lt;input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="m-address"&gt;Email&lt;/label&gt;
+                    &lt;input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" /&gt;
+                &lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+            </noscript>
+
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+									<a href="http://stackoverflow.com/questions/30491480/integration-testing-devise-using-testunit#" class="discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.</p>
+<input type="hidden" name="legalLinksShown" value="1">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/ruby-on-rails" class="post-tag" title="show questions tagged &#39;ruby-on-rails&#39;" rel="tag">ruby-on-rails</a> <a href="http://stackoverflow.com/questions/tagged/ruby" class="post-tag" title="show questions tagged &#39;ruby&#39;" rel="tag">ruby</a> <a href="http://stackoverflow.com/questions/tagged/ruby-on-rails-4" class="post-tag" title="show questions tagged &#39;ruby-on-rails-4&#39;" rel="tag">ruby-on-rails-4</a> <a href="http://stackoverflow.com/questions/tagged/devise" class="post-tag" title="show questions tagged &#39;devise&#39;" rel="tag">devise</a> <a href="http://stackoverflow.com/questions/tagged/integration-testing" class="post-tag" title="show questions tagged &#39;integration-testing&#39;" rel="tag">integration-testing</a>  or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2015-05-27 19:29:29Z"><b>5 months ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>170 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="http://stackoverflow.com/questions/30491480/integration-testing-devise-using-testunit?lastactivity" class="lastactivity-link" title="2015-09-01 17:49:03Z">1 month ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+						
+			<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk569195372",[17,2221]).setZone(45); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk569195372"><div id="careersadsdoublehigh" style="display:none;"></div><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li><li><label><input type="radio" value="16" name="downvoteReason">Other</label></li></ul><a href="http://stackoverflow.com/questions/30491480/integration-testing-devise-using-testunit#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img height="0px" width="0px" border="0" style="position:absolute;" src="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/i(1).gif"></div>
+        <div id="hireme" class=" blue looking tagged"><a href="http://careers.stackoverflow.com/jobs" target="_blank" data-hf="h" class="top"> <span>Looking for a job?</span></a><ul class="jobs"><li><a data-cid="135974" href="http://careers.stackoverflow.com/jobs/49503/senior-ruby-on-rails-developer-f-m-drooms-gmbh" target="_blank" title="Senior Ruby on Rails Developer (f/m) at Drooms GmbH. Click to learn more.">Senior Ruby on Rails Developer (f/m)<br><div class="company">Drooms GmbH</div><div class="location" title="Frankfurt, Deutschland / relocation">Frankfurt, Deutschland / relocation</div><span class="post-tag">ruby-on-rails</span><span class="post-tag">http</span></a></li><li><a data-cid="164764" href="http://careers.stackoverflow.com/jobs/78454/senior-ror-software-engineer-with-strong-systems-microapps" target="_blank" title="Senior RoR Software Engineer with strong systems / architecture background at microapps. Click to learn more.">Senior RoR Software Engineer with strong systems / architecture background<br><div class="company">microapps</div><div class="location" title="Málaga, Spain / relocation">Málaga, Spain / relocation</div><span class="post-tag">ruby-on-rails</span><span class="post-tag">amazon-web-services</span></a></li><li><a data-cid="181746" href="http://careers.stackoverflow.com/jobs/95768/devops-ruby-engineer-stitch-fix" target="_blank" title="DevOps/Ruby Engineer at Stitch Fix. Click to learn more.">DevOps/Ruby Engineer<br><div class="company">Stitch Fix</div><div class="location" title="San Francisco, CA / relocation">San Francisco, CA / relocation</div><span class="post-tag">ruby-on-rails</span><span class="post-tag">ruby</span></a></li><li><a data-cid="186024" href="http://careers.stackoverflow.com/jobs/100077/full-stack-javascript-engineer-marketkarma" target="_blank" title="Full Stack JavaScript Engineer at MarketKarma. Click to learn more.">Full Stack JavaScript Engineer<br><div class="company">MarketKarma</div><div class="location" title="Miami Beach, FL / remote / relocation">Miami Beach, FL / remote / relocation</div><span class="post-tag">javascript</span><span class="post-tag">asynchronous</span></a></li></ul><img class="impression" src="./ruby on rails - Integration testing Devise using Test  Unit - Stack Overflow_files/i(2).gif" style="display:none;"></div>
+			  
+    
+            
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/4292872?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">5
+    </div>
+</a><a href="http://stackoverflow.com/questions/4292872/rails-integration-test-with-the-devise-gem?rq=1" class="question-hyperlink">Rails integration test with the devise gem</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/8708533?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/8708533/devise-not-working-properly-in-rails-integration-tests?rq=1" class="question-hyperlink">devise not working properly in rails integration tests</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/8996246?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">7
+    </div>
+</a><a href="http://stackoverflow.com/questions/8996246/rspec-integration-test-with-devise-throws-nomethoderror-error?rq=1" class="question-hyperlink">rspec integration test with devise throws NoMethodError error</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/11918348?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/11918348/devise-rspec-test-integration?rq=1" class="question-hyperlink">Devise &amp; Rspec Test Integration</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/14098332?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">3
+    </div>
+</a><a href="http://stackoverflow.com/questions/14098332/rails-devise-authenticated-routes-in-integration-test?rq=1" class="question-hyperlink">rails Devise authenticated routes in integration test</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/25476642?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/25476642/devise-reset-password-integration-test-failing?rq=1" class="question-hyperlink">Devise reset password integration test failing</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/25587215?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/25587215/how-to-integrate-merit-gem-in-rails-application-with-devise-with-different-model?rq=1" class="question-hyperlink">How to integrate merit gem in rails application with devise with different model name</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/30313029?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/30313029/integration-test-for-has-one-relationship-failing?rq=1" class="question-hyperlink">Integration test for has_one relationship failing</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/30561218?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/30561218/assigns-isnt-working-in-my-integration-test?rq=1" class="question-hyperlink">`Assigns` isn't working in my integration test</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/30604110?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/30604110/timewithzone-time-zone-now-integration-test-fails?rq=1" class="question-hyperlink">TimeWithZone &amp; Time.zone.now integration test fails</a>
+</div>
+
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module">
+    <h4>
+        <a href="http://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-space" title="Space Exploration Stack Exchange"></div><a href="http://space.stackexchange.com/questions/12506/what-is-the-exact-format-of-the-jpl-ephemeris-files" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:508 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is the exact format of the JPL ephemeris files?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/62348/boo-a-halloween-code-golf-challenge" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Boo! A Halloween Code Golf Challenge
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-ell" title="English Language Learners Stack Exchange"></div><a href="http://ell.stackexchange.com/questions/72060/why-is-crime-story-more-correct-than-criminal-story" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:481 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is "crime story" more correct than "criminal story"?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-hardwarerecs" title="Hardware Recommendations Stack Exchange"></div><a href="http://hardwarerecs.stackexchange.com/questions/934/cpu-cooling-system-recommendation" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:635 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    CPU cooling system recommendation?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-ell" title="English Language Learners Stack Exchange"></div><a href="http://ell.stackexchange.com/questions/72209/common-not-uncommon" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:481 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    common == Not uncommon?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="http://electronics.stackexchange.com/questions/198104/does-this-layout-ever-make-sense-to-do" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Does this layout ever make sense to do?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/283646/two-grammatical-problems-in-the-lyrics-of-colors-of-the-wind" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Two grammatical problems in the lyrics of "Colors of the wind"
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-ux" title="User Experience Stack Exchange"></div><a href="http://ux.stackexchange.com/questions/86389/design-process-which-is-the-best-moment-to-include-developers-in-the-process-o" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:102 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Design process : which is the best moment to include developers in the process of software development?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/56830/how-to-make-it-clear-to-my-boss-that-ill-be-resigning-in-the-near-future" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to make it clear to my boss that I'll be resigning in the near future
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-money" title="Personal Finance &amp; Money Stack Exchange"></div><a href="http://money.stackexchange.com/questions/55405/what-is-insider-trading-exactly" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What is insider trading exactly?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-skeptics" title="Skeptics Stack Exchange"></div><a href="http://skeptics.stackexchange.com/questions/30599/have-islamic-prayers-been-introduced-into-ontario-public-schools-while-christian" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:212 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Have Islamic prayers been introduced into Ontario public schools while Christian ones have been removed?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="http://rpg.stackexchange.com/questions/70498/can-you-eldritch-blast-as-a-readied-action-even-though-its-multiple-attacks" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can you Eldritch Blast as a Readied action even though it's multiple attacks?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-money" title="Personal Finance &amp; Money Stack Exchange"></div><a href="http://money.stackexchange.com/questions/55419/if-i-create-software-that-can-identify-and-predict-insider-trading-and-i-use-th" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    If I create software that can identify and predict insider trading, and I use that to trade, am I insider trading?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-boardgames" title="Board &amp; Card Games Stack Exchange"></div><a href="http://boardgames.stackexchange.com/questions/27392/is-the-example-of-rule-601-2h-wrong" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:147 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is the example of rule 601.2h wrong?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="http://academia.stackexchange.com/questions/57210/confidential-research-project" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Confidential research project
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-tex" title="TeX - LaTeX Stack Exchange"></div><a href="http://tex.stackexchange.com/questions/275785/how-to-write-large-include-2-like-this-picture" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:85 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    how to write large [ include 2 { like this picture
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1505661/can-a-pre-calculus-student-prove-this" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can a pre-calculus student prove this?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-physics" title="Physics Stack Exchange"></div><a href="http://physics.stackexchange.com/questions/215353/what-does-an-undefined-formula-in-physics-mean" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:151 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What does an undefined formula in physics mean?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-genealogy" title="Genealogy &amp; Family History Stack Exchange"></div><a href="http://genealogy.stackexchange.com/questions/9890/where-would-i-find-a-copy-of-a-us-patent-from-1905" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:467 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Where would I find a copy of a US patent from 1905?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-electronics" title="Electrical Engineering Stack Exchange"></div><a href="http://electronics.stackexchange.com/questions/198101/how-to-tune-a-pid-controller-to-a-nonlinear-process" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:135 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to tune a PID controller to a nonlinear process
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="http://security.stackexchange.com/questions/104046/what-type-of-pattern-should-i-use-for-my-passwords" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What type of pattern should I use for my passwords?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-gamedev" title="Game Development Stack Exchange"></div><a href="http://gamedev.stackexchange.com/questions/110431/how-can-i-calculate-current-level-from-total-xp-when-each-level-requires-propor" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:53 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How can I calculate current level from total XP, when each level requires proportionally more XP?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="http://stackoverflow.com/questions/33439897/how-does-net-framework-allocate-memory-for-outofmemoryexception" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How does .NET framework allocate memory for OutOfMemoryException?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="http://worldbuilding.stackexchange.com/questions/28328/how-to-subtly-identify-a-weapon-as-powerfully-magical" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to subtly identify a weapon as powerfully magical?
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="http://stackoverflow.com/feeds/question/30491480" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/30491480/ivc/8135');});
+</script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/30491480/ivc/8135" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+</noscript><div style="display:none" id="prettify-lang">lang-rb</div></div>
+
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                    <a href="http://stackoverflow.com/help">help</a>
+                    <a href="http://blog.stackoverflow.com/?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com/">chat</a>
+                    <a href="http://data.stackexchange.com/">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackexchange.com/work-here">work here</a>
+                    <a href="http://stackexchange.com/mediakit">advertising info</a>
+
+                    <a onclick="StackExchange.switchMobile(&quot;on&quot;)">mobile</a>
+                    <b><a href="http://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com/" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Mathematica">Mathematica</a></li>
+                        <li><a href="http://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                        <li><a href="http://expressionengine.stackexchange.com/" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (13)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="http://movies.stackexchange.com/" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="http://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (9)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                        <li><a href="http://chemistry.stackexchange.com/" title="scientists, academics, teachers and students">Chemistry</a></li>
+                        <li><a href="http://biology.stackexchange.com/" title="biology researchers, academics, and students">Biology</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (5)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com/">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+
+            <div id="copyright">
+                site design / logo © 2015 Stack Exchange Inc; user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2015.10.30.2921
+            </div>
+            
+        </div>
+    </div>
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled&lt;img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;&lt;/div&gt;
+    </noscript>
+<script>var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script>
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    ados.run.push(function () { ados_setKeywords('ruby-on-rails,ruby,ruby-on-rails-4,devise,integration-testing');; ados_load(); });         
+</script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-5620270-1');
+                        ga('set', 'dimension2', '|ruby-on-rails|ruby|ruby-on-rails-4|devise|integration-testing|');         ga('send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+            qc.async=true;
+            qc.src=(ssl?'https://secure':'http://edge')+'.quantserve.com/quant.js';
+            s.parentNode.insertBefore(qc, s);
+            var sc=document.createElement('script');
+            sc.async=true;
+            sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+            s.parentNode.insertBefore(sc, s);
+        })();
+        _comscore.push({ c1: "2", c2: "17440561" });
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>
+            
+    
+</body></html>

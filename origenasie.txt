@@ -1,0 +1,7 @@
+|Asiento Manual||t
+|Asiento de Ajuste TC||t
+|Asiento de Ajuste UFV||t
+|Asiento de Apertura||t
+|Asiento de Cierre||t
+|Cuadre de Fondos||t
+|Cuadre de Oficinas||t

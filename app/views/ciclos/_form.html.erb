@@ -1,0 +1,46 @@
+<% provide(:title, "Apertura de Ciclo") %>
+<% if @ciclo.id == nil %>      
+  <% provide(:sub_title, "Nuevo") %>
+<% else %>
+  <% provide(:sub_title, "Edicion")  %>
+<% end %>
+
+ <% flash.each do |severity, message| %>
+    <div data-alert class='alert-box <%= severity %>' role='dialog'>
+      <%= message %>
+      <a href='#' class='close flash-data-alert'>&times;</a>
+    </div>
+  <% end %>
+  
+
+<%= form_for(@ciclo) do |f| %>
+  <fieldset>    
+    <div class="row">
+      <div class="small-3 columns<%= @ciclo.errors[:fini].any? ? " error" : "" %>">
+        <label>Fecha de Inicio
+        <%= f.date_field :fini %>
+        <% unless @ciclo.errors[:fini].blank? %>
+                <small class='error'><%= @ciclo.errors[:fini].join(", ").html_safe %></small>
+        <% end %>
+        </label>
+      </div>     
+      <div class="small-4 columns">
+        <label>Periodos
+          <%= f.collection_select :tipo, Ciclo::TIPO, :first, :last, prompt: false %>
+        </label>
+      </div>
+       <div class="small-5 columns">
+      </div>
+    </div>      
+  
+  </fieldset>
+  <%= f.hidden_field :activo %> 
+  <%= f.hidden_field :empresa_id %> 
+  
+  
+  <% if @ciclo.id == nil %> 
+    <%= f.submit "Grabar", :class => 'small button' %>   
+  <% else %>
+    <%= f.submit "Anular", :class => 'small button alert' %>
+  <% end %>
+<% end %>

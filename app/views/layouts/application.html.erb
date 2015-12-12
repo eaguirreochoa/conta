@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "foundation-rails" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+
+  </head>
+
+  <body>
+         
+                
+        <div class="off-canvas-wrap" data-offcanvas>
+        <div class="inner-wrap">
+          <nav class="tab-bar">
+            <section class="left-small">
+              <a class="left-off-canvas-toggle menu-icon" ><span></span></a>
+            </section>
+
+            <section class="middle tab-bar-section">
+              <h1 class="title">ACERCATE S.R.L</h1>
+            </section>
+
+       
+
+
+           <section class="top-bar-section">
+              <!-- Right Nav Section -->
+              <ul class="right">
+                <li class="label"><i class="fa fa-user fa-fw"></i><%= current_user.username %></li>
+                <li class="divider"></li>
+                <li class=""><%= link_to "Log off", destroy_user_session_path, :method => :delete%></li>
+              </ul>  
+            </section>
+          </nav>
+
+          <aside class="left-off-canvas-menu">
+            <ul class="off-canvas-list">
+              <li><label>Contabilidad</label></li>
+              <li><%= link_to "Comprobantes", diarios_path %></li>
+              
+              <li class="has-submenu"><a href="#">Ajustes</a>
+                <ul class="left-submenu">
+                  <li class="back"><a href="#">Back</a></li>
+                  <li><label>Ajustes</label></li>
+                  <li><%= link_to "UFV", ajustes_path %></li>
+                </ul>
+              </li>
+
+              <li class="has-submenu"><a href="#">Cierre y Apertura</a>
+                <ul class="left-submenu">
+                  <li class="back"><a href="#">Back</a></li>
+                  <li><label>Cierre</label></li>
+                  <li><%= link_to "Periodo", cierres_path %></li>
+                  <li><%= link_to "Ciclo", cierre_ciclos_path %></li>
+                  <li><label>Apertura</label></li>
+                  <li><%= link_to "Ciclo", ciclos_path %></li>
+                </ul>
+              </li>
+
+              <li class="has-submenu"><a href="#">Reportes</a>
+                <ul class="left-submenu">
+                  <li class="back"><a href="#">Back</a></li>
+                  <li><label>Reportes</label></li>
+                  <li><%= link_to "Diario Detalle", rpt_diario_dets_new_path %></li>
+                  <li><%= link_to "Mayor", rpt_mayors_new_path %></li>
+                  <li><%= link_to "Balance General", rpt_balance_grals_new_path %></li>
+                  <li><%= link_to "Balance de Sumas y Saldos", rpt_bal_gral_suma_saldos_new_path %></li>
+                  <li><%= link_to "Estado de Resultados", rpt_estado_resuls_new_path %></li>
+                  <li><%= link_to "Estado de Cuenta", rpt_estado_cuenta_dets_new_path%></li>
+                </ul>
+              </li>
+
+              <li><%= link_to "Empleados", empleados_path %></li>
+              <li><%= link_to "Acreedores", acreedors_path %></li>
+              <li><%= link_to "Proveedores", proveedors_path %></li>
+              <li><%= link_to "Clientes", clientes_path %></li>
+
+              <li class="has-submenu"><a href="#">Configuracion</a>
+                <ul class="left-submenu">
+                  <li class="back"><a href="#">Back</a></li>
+                  <li><label>Configuracion</label></li>
+                  <li><%= link_to "Plan de cuentas", catalogos_path %></li>
+                </ul>
+              </li>     
+                        
+            </ul>
+          </aside>
+
+          <section class="main-section">
+                     
+          <h3><%= full_title(yield(:title)) %> <small><%=sub_title(yield(:sub_title)) %></small></h3>     
+          <p>  <%= yield %></p>                   
+           
+          </section>
+
+        <a class="exit-off-canvas"></a>
+
+        </div>
+      </div>
+        
+   
+
+  </body>
+</html>

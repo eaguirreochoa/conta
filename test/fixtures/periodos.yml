@@ -1,0 +1,17 @@
+# # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# one:
+#   fini: 2015-09-02 21:50:59
+#   ffin: 2015-09-02 21:50:59
+#   nro: MyString
+#   gestion: MyString
+#   activo: false
+#   empresa_id: 
+
+# two:
+#   fini: 2015-09-02 21:50:59
+#   ffin: 2015-09-02 21:50:59
+#   nro: MyString
+#   gestion: MyString
+#   activo: false
+#   empresa_id: 

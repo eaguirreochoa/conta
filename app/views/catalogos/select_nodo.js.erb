@@ -1,0 +1,6 @@
+$('#task-form')
+  .html("<%= escape_javascript(link_to 'Editar', edit_catalogo_path(@b), :class => 'small button' ) %>");
+$('#nueva-cuenta')
+  .html("<%= escape_javascript(link_to 'Agregar', new_catalogo_path(:id => @b), :class => 'small button' ) %>");
+
+  

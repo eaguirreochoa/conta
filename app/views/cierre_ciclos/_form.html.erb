@@ -1,0 +1,75 @@
+<% provide(:title, "Cierre de Ciclo") %>
+<% if @cierre_ciclo.id == nil %>      
+  <% provide(:sub_title, "Nuevo") %>
+<% else %>
+  <% provide(:sub_title, "Edicion")  %>
+<% end %>
+
+
+ <% flash.each do |severity, message| %>
+    <div data-alert class='alert-box <%= severity %>' role='dialog'>
+      <%= message %>
+      <a href='#' class='close flash-data-alert'>&times;</a>
+    </div>
+  <% end %>
+
+
+<%= form_for(@cierre_ciclo) do |f| %>
+  <fieldset>
+    
+    <div class="row">
+      <div class="small-3 columns<%= @cierre_ciclo.errors[:fechaproceso].any? ? " error" : "" %>">
+        <label>Fecha
+        <%= f.date_field :fechaproceso, :readonly => true %>
+        <% unless @cierre_ciclo.errors[:fechaproceso].blank? %>
+                <small class='error'><%= @cierre_ciclo.errors[:fechaproceso].join(", ").html_safe %></small>
+        <% end %>
+        </label>
+      </div>      
+    </div>  
+
+    <div class="row">        
+      <div class="small-6 columns<%= @cierre_ciclo.errors[:desc].any? ? " error" : "" %>">
+        <label>Concepto<small>*</small>
+        <%= f.text_field :desc %>  
+        <% unless @cierre_ciclo.errors[:desc].blank? %>
+                <small class='error'><%= @cierre_ciclo.errors[:desc].join(", ").html_safe %></small>
+        <% end %>
+        </label>
+      </div>
+
+      <div class="small-2 columns">      
+        <label>Tipo de cambio <small>*</small>
+          <%= f.number_field :tc, step: 'any', class: "tc"%>
+          <% unless @cierre_ciclo.errors[:tc].blank? %>
+            <small class='error'><%= @cierre_ciclo.errors[:tc].join(", ").html_safe %></small>
+          <% end %>
+        </label>        
+      </div> 
+
+      <div class="small-4 columns">
+      </div>
+    </div>
+
+    <div class="row">        
+      <div class="small-3 columns">
+        <label>Es oficial: </label>
+          <%= f.check_box :esoficial %>          
+      </div>
+    </div>    
+
+
+   
+  </fieldset>
+  <%= f.hidden_field :activo %> 
+  <%= f.hidden_field :empresa_id %> 
+  <%= f.hidden_field :ciclo_id %> 
+  
+  
+  
+  <% if @cierre_ciclo.id == nil %> 
+    <%= f.submit "Grabar", :class => 'small button' %>   
+  <% else %>
+    <%= f.submit "Anular", :class => 'small button alert' %>
+  <% end %>
+<% end %>

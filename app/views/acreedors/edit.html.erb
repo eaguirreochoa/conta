@@ -1,0 +1,8 @@
+<% if @acreedor.esjuridica %> 
+	<%= render partial: 'acreedors/formjuridica', locals: { acreedor: @acreedor } %>
+	 
+<% else %>
+    <%= render partial: 'acreedors/form', locals: { acreedor: @acreedor } %>
+<% end %>
+<%= link_to 'Show', @acreedor %> |
+<%= link_to 'Back', acreedors_path %>

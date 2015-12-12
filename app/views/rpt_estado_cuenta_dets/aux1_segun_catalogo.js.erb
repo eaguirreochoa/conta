@@ -1,0 +1,2 @@
+$('#cod_lib_aux1').val("0");
+$("#cod_lib_aux1").html("<%= escape_javascript(options_for_select(@b.cuenta_config.libro_aux1.map { |obj| [obj['name'], obj['id']] }))-%>");

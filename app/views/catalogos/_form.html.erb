@@ -1,0 +1,230 @@
+<% provide(:title, "Plan de cuentas") %>
+<% if @catalogo.id == nil %>      
+  <% provide(:sub_title, "Nuevo") %>
+<% else %>
+  <% provide(:sub_title, "Edicion")  %>
+<% end %>
+
+ <% flash.each do |severity, message| %>
+    <div data-alert class='alert-box <%= severity %>' role='dialog'>
+      <%= message %>
+      <a href='#' class='close flash-data-alert'>&times;</a>
+    </div>
+  <% end %>
+  
+<%= form_for(@catalogo) do |f| %>
+
+  <fieldset>
+    <legend>Datos generales</legend>
+
+    <div class="row">
+      <div class="small-12 columns">
+        <div class="row">
+          <div class="small-3 columns">
+            <%= f.label :grupo_id, "Grupo", :class =>"right inline"%>
+          </div>
+          <div class="small-6 columns">
+            <%= f.select :grupo_id, @grupos.map{ |c| [c.nombre.titleize, "#{c.id}"] }, {}, { id:"grupo_select"}%>
+          </div>
+          <div class="small-3 columns">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    
+    <div class="row">
+      <div class="small-12 columns">
+        <div class="row">
+          <div class="small-3 columns">
+            <%= f.label :nivel_id, "Nivel", :class =>"right inline"%>
+          </div>
+          <div class="small-6 columns">              
+            <%= f.select :nivel_id, options_for_select(@nivels.collect { |nivel| [nivel.nombre.titleize, nivel.id] }, @catalogo.nivel_default), {}, { id: 'nivel_select' } %>
+          </div>
+          <div class="small-3 columns">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 columns">
+        <div class="row">
+          <div class="small-3 columns">
+            <%= f.label :padre_id, "Padre", :class =>"right inline"%>
+          </div>
+          <div class="small-6 columns">
+            <%= f.select :padre_id, @papa.map{ |c| [c.codigo + ' ' + c.nombre.titleize, "#{c.id}"] }, {}, { id:"padre_select"}%>
+          </div>
+          <div class="small-3 columns">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 columns">
+        <div class="row">
+          <div class="small-3 columns">
+            <%= f.label :padre, "Codigo", :class =>"right inline"%>
+          </div>
+          <div class="small-4 columns">
+            <%= f.text_field :padre, :id =>"catalogo_padre"%>
+          </div>
+          <div class="small-2 columns">
+            <%= f.text_field :sigla, :id =>"catalogo_sigla" %>  
+          </div>
+          <div class="small-3 columns">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 columns">
+        <div class="row<%= @catalogo.errors[:nombre].any? ? " error" : "" %>">
+          <div class="small-3 columns">
+            <%= f.label :nombre, "Nombre", :class =>"right inline"%>
+          </div>
+          <div class="small-6 columns">
+            <%= f.text_field :nombre %>
+            <% unless @catalogo.errors[:nombre].blank? %>
+                <small class='error'><%= @catalogo.errors[:nombre].join(", ").html_safe %></small>
+          <% end %>
+          </div>
+          <div class="small-3 columns">
+          </div>
+          
+        </div>
+      </div>
+    </div>
+
+  
+  </fieldset>
+
+  <fieldset>
+    <legend>Solo para cuentas de nivel transaccional</legend>
+
+   <div class="row">
+      <div class="small-12 columns">
+        <div class="row">
+          <div class="small-3 columns">
+            <%= f.label :tlaux1, "Libro Auxiliar 1", :class =>"right inline"%>
+          </div>      
+          <div class="small-6 columns">
+            <%= f.select :tlaux1, @laux.map{ |c| [c.descripcion.titleize, "#{c.id}"] }, :id =>"right-label", :include_blank => true%>
+          </div>
+           <div class="small-3 columns">            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 columns">
+        <div class="row">
+          <div class="small-3 columns">
+            <%= f.label :tlaux2, "Libro Auxiliar 2", :class =>"right inline"%>
+          </div>
+      
+          <div class="small-6 columns">
+            <%= f.select :tlaux2, @laux.map{ |c| [c.descripcion.titleize, "#{c.id}"] }, :id =>"right-label", :include_blank => true%>
+          </div>
+           <div class="small-3 columns">            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 columns">
+        <div class="row">
+          <div class="small-3 columns">
+            <%= f.label :idctaajusteufv, "Cuenta de Ajuste (UFV)", :class =>"right inline"%>
+          </div>
+      
+          <div class="small-6 columns">
+            <%= f.select :idctaajusteufv, @ajuste.map{ |c| [c.codigo + ' ' + c.nombre.titleize, "#{c.id}"] }, :id =>"right-label", :include_blank => true%>
+          </div>
+           <div class="small-3 columns">            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 columns">
+        <div class="row">
+          <div class="small-3 columns">
+            <%= f.label :idctaacumajusteufv, "Cuenta Acumulada (UFV)", :class =>"right inline"%>
+          </div>
+      
+          <div class="small-6 columns">
+            <%= f.select :idctaacumajusteufv, @ajuste.map{ |c| [c.codigo + ' ' + c.nombre.titleize, "#{c.id}"] }, :id =>"right-label", :include_blank => true%>
+          </div>
+           <div class="small-3 columns">            
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- <div class="row">
+      <div class="small-12 columns">
+        <div class="row">
+          <div class="small-3 columns">
+            <%= f.label :idctaajustetc, "Ajuste TC", :class =>"right inline"%>
+          </div>
+      
+          <div class="small-6 columns">
+            <%= f.select :idctaajustetc, @ajuste.map{ |c| [c.codigo + ' ' + c.nombre.titleize, "#{c.id}"] }, :id =>"right-label", :include_blank => true%>
+          </div>
+           <div class="small-3 columns">            
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+ 
+    <div class="row">
+      <div class="small-12 columns">
+        <div class="row">
+          <div class="small-3 columns">
+            <%= f.label :esflujodeejec , "Flujo de ejectivo", :class =>"right inline"%>
+          </div>
+             
+          <div class="small-5 columns">
+            <%= f.check_box :esflujodeejec %> 
+          </div>
+          <div class="small-4 columns">
+           
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+
+     <div class="row">
+      <div class="small-12 columns">
+        <div class="row">
+          <div class="small-3 columns">
+            <%= f.label :activo , "Activo", :class =>"right inline"%>
+          </div>
+             
+          <div class="small-5 columns">
+            <%= f.check_box :activo %> 
+          </div>
+          <div class="small-4 columns">
+           
+          </div>
+        </div>
+      </div>
+    </div>
+    <%= hidden_field_tag :usalaux1, 0 %>
+    <%= hidden_field_tag :usalaux2, 0 %>
+    <%= hidden_field_tag :estransaccional, 0 %>
+  </fieldset>
+
+<%= f.submit 'Grabar', :class => 'small button' %>
+
+<% end %>

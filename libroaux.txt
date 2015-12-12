@@ -1,0 +1,7 @@
+cuentabanco|Cuentas Bancarias|t|t
+fondo|Fondos|t|t
+empleado|Empleados|t|t
+oficina|Oficinas|t|t
+proveedor|Proveedores|t|t
+acreedor|Acreedores|t|t
+cheque|Cheques de Bancos|f|t

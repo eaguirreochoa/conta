@@ -1,0 +1,8 @@
+<% if @proveedor.esjuridica %> 
+	<%= render partial: 'proveedors/formjuridica', locals: { proveedor: @proveedor } %>
+	 
+<% else %>
+    <%= render partial: 'proveedors/form', locals: { proveedor: @proveedor } %>
+<% end %>
+<%= link_to 'Show', @proveedor %> |
+<%= link_to 'Back', proveedors_path %>

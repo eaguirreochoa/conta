@@ -1,0 +1,91 @@
+<% provide(:title, "cliente") %>
+<% if cliente.id == nil %>      
+  <% provide(:sub_title, "Nuevo") %>
+<% else %>
+  <% provide(:sub_title, "Edicion")  %>
+<% end %>
+
+<%= form_for cliente do |f| %>
+  <fieldset>
+    <legend>Persona Juridica</legend>
+    <div class="row">
+      
+      <div class="small-4 columns<%= cliente.errors[:Nombres].any? ? " error" : "" %>">
+        <label>Razon Social <small>*</small>
+        <%= f.text_field :Nombres %>   
+        <% unless cliente.errors[:Nombres].blank? %>
+                <small class='error'><%= cliente.errors[:Nombres].join(", ").html_safe %></small>
+        <% end %>
+        </label>        
+      </div>
+
+      <div class="small-5 columns<%= cliente.errors[:Di].any? ? " error" : "" %>">
+        <div class="row collapse">
+          <%= f.label :Di, "Documento de Identificacion" %>
+           <div class="small-2 columns">
+            <%= f.select :Dociden_id, @dis.map{ |c| [c.Sigla, "#{c.id}"] } %>
+          </div>
+          <div class="small-5 columns">
+            <%= f.text_field :Di %>
+            <% unless cliente.errors[:Di].blank? %>
+                <small class='error'><%= cliente.errors[:Di].join(", ").html_safe %></small>
+            <% end %>
+          </div>
+           <div class="small-5 columns">
+        
+          </div>
+        </div>
+      </div>
+      <div class="small-3 columns">
+            
+      </div>
+
+    </div>    
+    
+    <div class="row">  
+      <div class="small-4 columns<%= cliente.errors[:tipoentidad].any? ? " error" : "" %>">
+        <%= f.label :tipoentidad_id, "Tipo Entidad" %>
+        <%= f.select :tipoentidad_id, @tipoentidads.map{ |c| [c.nombre, "#{c.id}"] } %>
+        <% unless cliente.errors[:tipoentidad].blank? %>
+                <small class='error'><%= cliente.errors[:tipoentidad].join(", ").html_safe %></small>
+        <% end %>
+      </div>
+      <div class="small-5 columns<%= cliente.errors[:tiposociedad].any? ? " error" : "" %>">
+        <%= f.label :tiposociedad_id, "Tipo de Sociedad" %>
+        <%= f.select :tiposociedad_id, @tiposociedads.map{ |c| [c.nombre, "#{c.id}"] } %>
+        <% unless cliente.errors[:tiposociedad].blank? %>
+                <small class='error'><%= cliente.errors[:tiposociedad].join(", ").html_safe %></small>
+        <% end %>
+      </div>
+      <div class="small-3 columns">
+        
+      </div>
+    </div>
+
+    <div class="row">  
+      <div class="small-3 columns<%= cliente.errors[:Telefono].any? ? " error" : "" %>">
+        <%= f.label :Telefono %>
+        <%= f.text_field :Telefono %>
+        <% unless cliente.errors[:Telefono].blank? %>
+                <small class='error'><%= cliente.errors[:Telefono].join(", ").html_safe %></small>
+        <% end %>
+      </div>
+      <div class="small-4 columns<%= cliente.errors[:Correo].any? ? " error" : "" %>">
+        <%= f.label :Correo %>
+        <%= f.text_field :Correo %>
+        <% unless cliente.errors[:Correo].blank? %>
+                <small class='error'><%= cliente.errors[:Correo].join(", ").html_safe %></small>
+        <% end %>
+      </div>
+      <div class="small-5 columns">
+     
+      </div>
+    </div>
+
+  </fieldset>
+  <%= f.hidden_field :esjuridica, :value => f.object.esjuridica %> 
+
+<%= f.submit 'Grabar', :class => 'small button' %>
+<% end %>
+
+  

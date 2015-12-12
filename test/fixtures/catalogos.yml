@@ -1,0 +1,36 @@
+# # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+# disponibilidades:
+#   nombre: DISPONIBILIDADES
+#   sigla: 1
+#   padre: 1
+#   estransaccional: f
+#   esflujodeejec: f
+#   usalaux1: f
+#   usalaux2: f
+#   tlaux1: 0
+#   tlaux2: 0
+#   idctaajustetc: 0
+#   idctaajusteufv: 0
+#   activo: t
+#   nivel_id: 2
+#   grupo_id: 1
+#   naturaleza: D
+#   padre_id: 1
+#   idctaacumajusteufv: 0
+ disponibilidades:
+  sigla: 1
+  padre: 1
+  estransaccional: f
+  esflujodeejec: f
+  usalaux1: f
+  usalaux2: f
+  tlaux1: 0
+  tlaux2: 0
+  idctaajustetc: 0
+  idctaajusteufv: 0
+  activo: t
+  nivel_id: 2
+  grupo_id: 1
+  naturaleza: D
+  padre_id: 1
+  idctaacumajusteufv: 0

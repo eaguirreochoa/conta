@@ -1,0 +1,43 @@
+<% provide(:title, "Diario Detalle") %>
+<% provide(:sub_title, "Impresion")  %>
+      
+    
+<%= form_for @rpt_diario_det do |f| %>
+  <% if @rpt_diario_det.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= "#{pluralize(@rpt_diario_det.errors.count, "error")} prohibited this rpt_diario_det from being sent:" %>
+      </h2>
+
+      <ul>
+        <% @rpt_diario_det.errors.full_rpt_diario_dets.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      <ul>
+    </div>
+  <% end %>
+
+	 <div class="row">      
+      <div class="small-4 columns">
+        <%= f.label :f_ini, "Fecha Inicial" %>
+        <%= f.date_field :f_ini, value: @rpt_diario_det.inicio_ciclo.strftime("%Y-%m-%d") %>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :f_fin, "Fecha final" %>
+        <%= f.date_field :f_fin, value: @rpt_diario_det.fin_periodo.strftime("%Y-%m-%d") %> 
+      </div>
+
+      <div class="small-4 columns">    
+      </div>
+    </div>
+
+  <div class="actions">
+    <%= f.button 'Imprimir', :class => 'small button', data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Procesando..."} %>
+    
+  </div>
+
+
+<% end %>
+
+

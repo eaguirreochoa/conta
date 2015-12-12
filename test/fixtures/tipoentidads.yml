@@ -1,0 +1,13 @@
+# # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# one:
+#   codigo: MyString
+#   sigla: MyString
+#   nombre: MyString
+#   activo: false
+
+# two:
+#   codigo: MyString
+#   sigla: MyString
+#   nombre: MyString
+#   activo: false

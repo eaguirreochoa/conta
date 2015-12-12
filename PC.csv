@@ -1,0 +1,414 @@
+100-00-00-000|A C T I V O|1|0|0
+110-00-00-000|ACTIVO CORRIENTE|2|1|1
+111-00-00-000|DISPONIBLE|3|2|2
+111-01-00-000|CAJA MONEDA NACIONAL|4|3|3
+111-01-01-000|Caja 1 M/N|5|4|4
+111-02-00-000|CAJA MONEDA EXTRANJERA|4|5|5
+111-02-01-000|Caja 1 M/E|5|6|6
+111-03-00-000|FONDO FIJO|4|7|7
+111-03-01-000|Caja Chica (SCC)|5|8|8
+111-03-02-000|Caja Chica (JMC)|5|9|9
+111-04-00-000|BANCO S MONEDA NACIONAL|4|10|10
+111-04-01-000|B.N.B. 1000253258 (M/N)|5|11|11
+111-04-02-000|B.U. 10000013958323 (M/N)|5|12|12
+111-05-00-000|BANCOS MONEDA EXTRANJERA|4|13|13
+111-05-01-000|B.N.B. 1400612214 (M/E)|5|14|14
+112-00-00-000|EXGIBLE|3|15|15
+112-01-00-000|CUENTAS  POR COBRAR|4|16|16
+112-01-01-000|Clientes varios M/N|5|17|17
+112-01-01-001|Tenzarpret|6|18|18
+112-01-01-002|Pretec Ltda.|6|19|19
+112-01-01-003|Zenon Gutierrez|6|20|20
+112-01-01-004|Maltor S.R.L.|6|21|21
+112-01-01-005|Etibol S.R.L.|6|22|22
+112-01-01-006|Pretensa Ltda.|6|23|23
+112-01-01-007|Patzi|6|24|24
+112-01-01-008|Alfonso Tumiri|6|25|25
+112-01-01-009|Jurcich Mucopret|6|26|26
+112-01-01-010|Previtec S.R.L.|6|27|27
+112-01-01-011|Lidia Mamani López|6|28|28
+112-01-01-012|Serafin Garnica|6|29|29
+112-01-01-013|Cadeb S.A.|6|30|30
+112-01-01-014|Aquiles S.R.L.|6|31|31
+112-01-01-015|Oscar Murillo|6|32|32
+112-01-01-016|Pretenplast Ltda.|6|33|33
+112-01-01-017|Convipret - Julio Mamani|6|34|34
+112-01-01-018|Prensor - Rufina Mamani|6|35|35
+112-01-01-019|Preconcret -Natalia Mamani|6|36|36
+112-01-01-020|Mamani (3453374016)|6|37|37
+112-01-01-021|Mamani (3499429010)|6|38|38
+112-01-01-022|E.P.C.M. Consultores S.R.l.|6|39|39
+112-01-01-023|Hormipret S.R.L.|6|40|40
+112-01-01-024|Mardonez|6|41|41
+112-01-01-025|Ramiro Velasquez|6|42|42
+112-01-01-026|Marcelo Mamani|6|43|43
+112-01-01-027|Plata|6|44|44
+112-01-01-028|Juana Cavero|6|45|45
+112-01-01-029|Esteban Apaza Mamani|6|46|46
+112-01-01-030|Impacta S.R.L.|6|47|47
+112-01-01-031|Natalia Mamani|6|48|48
+112-01-01-032|Pretenbol|6|49|49
+112-01-01-033|Presur S.R.L.|6|50|50
+112-01-01-034|Tensocret S.R.L.|6|51|51
+112-01-01-035|Gualberto Meriles|6|52|52
+112-01-01-036|Mauricio Benjamin Balboa Merida|6|53|53
+112-01-01-037|IES F&J S.R.L.|6|54|54
+112-01-01-038|Marcelo Barja|6|55|55
+112-01-01-039|Sevagrot S.R.L.|6|56|56
+112-01-01-040|José Vega|6|57|57
+112-01-01-041|Juan Jimenez|6|58|58
+112-01-01-042|Reynaldo Aruquipa|6|59|59
+112-01-01-043|Juan Iver Flores|6|60|60
+112-01-01-044|Hotel Osira|6|61|61
+112-01-01-045|Leon|6|62|62
+112-01-01-046|Bernardino Mamani  (SIN NOMBRE)|6|63|63
+112-01-01-047|Horvitec (Rosalia Gerónimo)|6|64|64
+112-01-01-048|Felix Yujra|6|65|65
+112-01-01-049|Creatica Alternativa S.R.L.|6|66|66
+112-01-01-050|Wilde|6|67|67
+112-01-01-051|Saavedra|6|68|68
+112-01-01-052|Hurtado|6|69|69
+112-01-01-053|Empresa Constructora M.Y. S.R.L.|6|70|70
+112-01-01-054|Velarde Construcciones S.R.L.|6|71|71
+112-01-01-055|Noemi Rid Campos|6|72|72
+112-01-01-056|Julio Cesar Claros|6|73|73
+112-01-01-057|Agapito Mamani|6|74|74
+112-01-01-058|Maldonado Exploraciones S.R.L.|6|75|75
+112-01-01-059|SCJ S.R.L.|6|76|76
+112-01-01-060|Creatica Suppliers|6|77|77
+112-01-01-061|Wilfredo Maldonado (SIN NOMBRE)|6|78|78
+112-01-01-062|Vyomeda S.R.L.|6|79|79
+112-01-01-063|Oriana S.R.L.|6|80|80
+112-01-01-064|Tecnopreco S.R.L.|6|81|81
+112-01-01-065|Premoltec S.R.L.|6|82|82
+112-01-01-066|Ivan Lázaro|6|83|83
+112-01-01-067|Empresa Servicio Técnico Industrial S.R.L.|6|84|84
+112-01-01-068|Angel Pacheco|6|85|85
+112-01-01-069|Constructora Villca - Perez S.R.L.|6|86|86
+112-01-01-070|Hernan Mamani|6|87|87
+112-01-01-071|Mario Mamani|6|88|88
+112-01-01-072|Giovanna Leaño|6|89|89
+112-01-01-073|Visión 360°|6|90|90
+112-01-01-074|Flores|6|91|91
+112-01-01-075|Actel S.R.L.|6|92|92
+112-01-01-076|Simon Palle|6|93|93
+112-01-01-077|Hugo Villca Ramos|6|94|94
+112-01-01-078|Industrias Dorado - Ruben Julio Susara Colque|6|95|95
+112-01-01-079|Luna|6|96|96
+112-01-01-080|Zenon Magne Ibañez|6|97|97
+112-01-01-081|S y A Empresa Constructora|6|98|98
+112-01-01-082|Copinsa S.R.L.|6|99|99
+112-01-01-083|Conservice S.R.L.|6|100|100
+112-01-01-084|Jorge Lopez|6|101|101
+112-01-01-085|Arzat Constructora S.R.L.|6|102|102
+112-01-01-086|Freddy Mamani|6|103|103
+112-01-01-087|Eloy Condori|6|104|104
+112-01-01-088|Hernan Bautista Quispe|6|105|105
+112-01-01-089|T.S.G. S.R.L.|6|106|106
+112-01-01-090|Victor Garcia|6|107|107
+112-01-01-091|Ervin Irigoyen|6|108|108
+112-01-01-092|Fidel Rosales|6|109|109
+112-01-01-093|Limber Ribera|6|110|110
+112-01-01-094|Socaire Bolivia S.A.|6|111|111
+112-01-01-095|C.D.S. Ltda.|6|112|112
+112-01-01-096|Ernesto Larico Apaza|6|113|113
+112-01-01-097|Manufacturas el Trigal S.R.L.|6|114|114
+112-01-01-098|Sociedad Educativa Rio Nuevo S.R.L.|6|115|115
+112-01-01-099|Yasitata S.R.L.|6|116|116
+112-01-01-100|Varios por cobrar|6|117|117
+112-01-01-101|Inochea Construcciones S.R.L.|6|118|118
+112-01-01-102|Veronica Paz Flores|6|119|119
+112-01-01-103|Luis German Suarez|6|120|120
+112-01-01-104|Hernan Tumiri|6|121|121
+112-01-01-105|Ruth Veronica Arratia Cazorla|6|122|122
+112-01-01-106|Magne|6|123|123
+112-01-01-107|Augustin Alvarez|6|124|124
+112-01-01-108|Ramos|6|125|125
+112-01-01-109|Roduga Inversiones S.A.|6|126|126
+112-01-01-110|Edwin Colque Mamani|6|127|127
+112-01-01-111|Esther Huanca|6|128|128
+112-01-01-112|Rolando Tumiri|6|129|129
+112-01-01-113|Tomas Mollo|6|130|130
+112-01-01-114|Rosalia Geronimo|6|131|131
+112-01-01-115|Emtabe S.R.L.|6|132|132
+112-01-01-116|Soboce S.A.|6|133|133
+112-01-01-117|Rojas|6|134|134
+112-01-01-118|Ticona|6|135|135
+112-01-01-119|Cordova|6|136|136
+112-01-01-120|Eulogio Condori|6|137|137
+112-01-01-121|Villena|6|138|138
+112-01-01-122|Preforte Pretensados y Hormigones S.A.|6|139|139
+112-01-01-123|Julieta Gutierrez|6|140|140
+112-01-01-124|Primo Quispe|6|141|141
+112-01-01-125|Laura|6|142|142
+112-01-01-126|Mardonez|6|143|143
+112-01-02-000|Clientes varios M/E|5|144|144
+112-02-00-000|CUENTAS FISCALES|4|145|145
+112-02-01-000|Crédito Fiscal I.V.A.|5|146|146
+112-03-00-000|CUENTA CORRIENTE SOCIOS|4|147|147
+112-03-01-000|Oscar Marco A. Gonzales R.|5|148|148
+112-03-02-000|José Miguel Condori Q.|5|149|149
+112-03-03-000|Adán Edgar Chuquimia Q.|5|150|150
+112-04-00-000|ANTICIPOS AL PERSONAL|4|151|151
+112-05-00-000|OTRAS CUENTAS POR COBRAR|4|152|152
+112-05-01-000|Cuentas con cargo a rendición|5|153|153
+112-05-02-000|Varias cuentas por cobrar|5|154|154
+112-05-03-000|Devoluciones por cobrar|5|155|155
+113-00-00-000|DIFERIDO|3|156|156
+113-01-00-000|ANTICIPOS Y ADELANTOS|4|157|157
+113-01-01-000|Anticipos varios|5|158|158
+113-01-02-000|I.T. pagado por anticipado|5|159|159
+113-01-03-000|Internet por anticipado|5|160|160
+114-00-00-000|REALIZABLE|3|161|161
+114-01-00-000|EXISTENCIA DE MERCADERIAS|4|162|162
+114-01-01-000|Almacen La Paz|5|163|163
+114-01-01-001|Cables y Alambres|6|164|164
+114-01-01-002|Anclajes, Cuñas y porta cuñas|6|165|165
+114-01-02-000|Almacen El Alto|5|166|166
+114-01-02-001|Alambre de pretensado 3.8 mm|6|167|167
+114-01-02-002|Alambre de pretensado 4.0 mm|6|168|168
+114-01-02-003|Cordón de Pretensado 2x2.25 mm|6|169|169
+114-01-02-004|Cordon de Pretensado 3x2.25 mm|6|170|170
+114-01-02-005|Cordón de Pretensado 3x3.00 mm|6|171|171
+114-01-02-009|Repuestos Hidráulicos para pretensadora|6|172|172
+114-01-05-000|Depósito El Alto|5|173|173
+114-01-10-000|Ajuste a Inventarios|5|174|174
+114-02-00-000|MERCADERIAS EN TRANSITO|4|175|175
+114-02-01-000|Importación 01|5|176|176
+114-02-02-000|Importación 02|5|177|177
+114-02-03-000|Importación 03|5|178|178
+114-02-10-000|Silvery Dragon Group|5|179|179
+114-02-10-001|Importación S01|6|180|180
+114-02-10-002|Importación S02|6|181|181
+114-02-10-003|Importación S03|6|182|182
+114-02-10-004|Importación S04|6|183|183
+114-02-10-005|Importación S05|6|184|184
+114-02-10-006|Importación S06|6|185|185
+114-02-10-007|Importación S07|6|186|186
+114-02-20-000|Fapricela|5|187|187
+114-02-20-001|Importación F01|6|188|188
+114-02-20-002|Importación F02|6|189|189
+114-02-20-003|Importación F03|6|190|190
+114-02-20-004|Importación F04|6|191|191
+114-02-20-005|Importación F05|6|192|192
+114-02-20-006|Importación F06|6|193|193
+114-02-25-000|Paul Machinenfabrik|5|194|194
+114-02-25-001|Importación P01|6|195|195
+114-02-25-002|Importación P02|6|196|196
+114-02-30-000|Emcocables S.A.|5|197|197
+114-02-30-001|Importación E01|6|198|198
+114-02-30-002|Importación E02|6|199|199
+114-02-35-000|Vitus Braig e Hijos S.A. (Arg)|5|200|200
+114-02-35-001|Importación V01|6|201|201
+114-02-35-002|Importación V02|6|202|202
+114-02-40-000|TYCSA PSP (España)|5|203|203
+114-02-40-001|Importación T01|6|204|204
+114-02-45-000|TJPFTZ L.X. (China)|5|205|205
+114-02-45-001|Importacion TJP01|6|206|206
+114-02-45-002|Importación TJP02|6|207|207
+114-02-45-003|Importación TJP03|6|208|208
+114-02-45-004|Importación TJP04|6|209|209
+114-02-45-005|Importación TJP05|6|210|210
+114-02-50-000|Siderurgica Latina Martin S.p.A. (Italia)|5|211|211
+114-02-50-001|Importación SLM01|6|212|212
+114-02-55-000|ATHANOR STEEL LLC (Houston)|5|213|213
+114-02-55-001|Importación ATH01|6|214|214
+114-02-60-000|TIANJIN QIANGBANG (China)|5|215|215
+114-02-60-001|Importación TIAN01|6|216|216
+120-00-00-000|ACTIVO NO CORRIENTE|2|217|217
+121-00-00-000|BIENES DE USO|3|218|218
+121-01-00-000|MUEBLES Y ENSERES|4|219|219
+121-01-01-000|Costo de Muebles y Enseres|5|220|220
+121-01-02-000|Depreciación acumulada Muebles E.|5|221|221
+121-02-00-000|EQUIPO DE COMPUTACION|4|222|222
+121-02-01-000|Costo Equipo de Computación|5|223|223
+121-02-02-000|Depreciación acumulada Equipo de computación|5|224|224
+121-03-00-000|MAQUINARIA Y EQUIPO|4|225|225
+121-03-01-000|Costo Maquinaria y Equipo|5|226|226
+121-03-02-000|Depreciación acumulada Maquinaria y equipo|5|227|227
+121-04-00-000|VEHICULOS|4|228|228
+121-04-01-000|Costo Vehiculos|5|229|229
+121-04-02-000|Depreciación acumulada Vehiculos|5|230|230
+122-00-00-000|INTANGIBLE|3|231|231
+123-00-00-000|DIFERIDO|3|232|232
+123-01-00-000|ANTICIPOS Y ADELANTOS|4|233|233
+123-01-01-000|Gastos de Organización|5|234|234
+124-00-00-000|OTROS ACTIVOS|3|235|235
+124-01-00-000|SOFTWARES|4|236|236
+124-01-01-000|Sistema contable MACONT|5|237|237
+124-01-02-000|Amortización Sistema Contable|5|238|238
+124-01-03-000|Sistema de Facturación|5|239|239
+124-01-04-000|Amortizacion Siost. Facturac.|5|240|240
+200-00-00-000|P A S I V O|1|241|241
+210-00-00-000|PASIVO CORRIENTE|2|242|242
+211-00-00-000|EXIGIBLE|3|243|243
+211-01-00-000|CUENTAS POR PAGAR|4|244|244
+211-01-01-000|Proveedores por pagar|5|245|245
+211-01-01-010|Silvery Dragon Group Technology|6|246|246
+211-01-02-000|Devoluciones por pagar|5|247|247
+211-01-03-000|Sueldos por pagar|5|248|248
+211-01-04-000|Servicios personales por pagar|5|249|249
+211-01-05-000|Servicios básicos por pagar|5|250|250
+211-01-06-000|Alquileres por pagar|5|251|251
+211-01-07-000|Honorarios Profesionales|5|252|252
+211-01-08-000|Aportes (Laboral - Patronal) por pagar|5|253|253
+211-01-09-000|Pagos anticipados realizados|5|254|254
+211-01-10-000|Varias cuentas por pagar|5|255|255
+211-02-00-000|CUENTAS FISCALES|4|256|256
+211-02-01-000|Débito Fiscal I.V.A.|5|257|257
+211-02-02-000|Impuesto a las Transacciones|5|258|258
+211-02-03-000|RC-IVA Dependientes|5|259|259
+211-02-04-000|Impuesto a las Utilidades -Servicios|5|260|260
+211-02-05-000|Impuesto a las Utilidades -Bienes|5|261|261
+211-02-06-000|Impuesto a las Transacc. -Terceros|5|262|262
+211-02-07-000|Impuesto a las Utilidades Empresas|5|263|263
+211-02-08-000|RC-IVA Retenciones|5|264|264
+211-03-00-000|PRESTAMOS POR PAGAR|4|265|265
+211-03-01-000|Prestamos personales|5|266|266
+211-03-01-001|Visión 360°|6|267|267
+211-03-01-002|Diana Gonzales|6|268|268
+211-03-01-003|Fernando Calderón|6|269|269
+211-03-01-004|Familia Chuquimia|6|270|270
+211-03-01-005|Vision 360 -Jorge Cazas|6|271|271
+211-03-01-006|Vision 360 -Juan Pablo Burillo|6|272|272
+211-03-01-007|José Luis Contreras|6|273|273
+211-03-01-008|Miriam T. Guisbert|6|274|274
+211-03-01-009|Marco Gonzales|6|275|275
+211-03-01-010|Quispe - Velasquez|6|276|276
+211-03-01-011|Jorge Cazas Revalo|6|277|277
+211-03-01-012|Natividad Ochoa|6|278|278
+211-03-01-013|Ausberto Choque|6|279|279
+211-03-01-014|Fernando Bautista|6|280|280
+211-03-01-015|Mauricio Soria|6|281|281
+211-03-01-016|Adan Chuquimia|6|282|282
+211-03-02-000|Prestamos Bancarios M/N|5|283|283
+211-03-03-000|Prestamos Bancarios M/E|5|284|284
+211-03-04-000|Presmaos Bancarios M/N|5|285|285
+211-03-04-001|Banco Nacional de Bolivia|6|286|286
+211-03-05-000|Intereses personales por apagar|5|287|287
+211-03-06-000|Intereses presonales|5|288|288
+211-03-06-001|Visión 360°|6|289|289
+211-03-06-002|Diana Gonzales|6|290|290
+211-03-06-003|Fernando Calderón|6|291|291
+211-03-06-004|Familia Chuquimia|6|292|292
+211-03-06-005|Visión 360 - Jorge Cazas|6|293|293
+211-03-06-006|Visión 360 - Juan Pablo Burillo|6|294|294
+211-03-06-007|José Luis Contreras|6|295|295
+211-03-06-008|Miriam T. Guisbert|6|296|296
+211-03-06-009|Marco Gonzales|6|297|297
+211-03-06-010|Quispe - Velasquez|6|298|298
+211-03-06-011|Jorge Cazas Arevalo|6|299|299
+211-03-06-012|Natividad Ochoa|6|300|300
+211-03-06-013|Ausberto Choque|6|301|301
+211-03-06-014|Fernando Bautista|6|302|302
+211-03-06-015|Mauricio Soria|6|303|303
+211-03-06-016|Adan Chuquimia|6|304|304
+212-00-00-000|PROVISIONES|3|305|305
+212-01-00-000|BENEFICIOS SOCIALES|4|306|306
+212-01-01-000|Indemnizaciones|5|307|307
+212-01-02-000|Aguinaldos|5|308|308
+212-01-03-000|Primas - Bonos|5|309|309
+212-01-04-000|Vacaciones|5|310|310
+212-01-05-000|Otros descuentos|5|311|311
+220-00-00-000|PASIVO NO CORRIENTE|2|312|312
+221-00-00-000|OBLIGACIONES BANCARIAS|3|313|313
+222-00-00-000|PREVISIONES|3|314|314
+223-00-00-000|OTROS|3|315|315
+300-00-00-000|P A T R I M O N I O|1|316|316
+310-00-00-000|CAPITAL SOCIAL|2|317|317
+311-00-00-000|APORTES DE CAPITAL|3|318|318
+311-01-00-000|SOCIOS|4|319|319
+311-01-01-000|Oscar Marco A. Gonzales R.|5|320|320
+311-01-02-000|José Miguel Condori Quispe|5|321|321
+311-01-03-000|Adán Edgar Chuquimia Quispe|5|322|322
+312-00-00-000|RESERVAS Y RESULTADOS|3|323|323
+312-01-00-000|RESERVAS|4|324|324
+312-01-01-000|Ajuste a Capital|5|325|325
+312-01-02-000|Reserva Legal|5|326|326
+312-01-05-000|Ajuste a Reservas Patrimoniales|5|327|327
+312-02-00-000|RESULTADOS|4|328|328
+312-02-01-000|Resultados Acumulados|5|329|329
+312-02-02-000|Resultado del Ejercicio|5|330|330
+312-02-03-000|Ajuste a Resultados|5|331|331
+400-00-00-000|I N G R E S O S|1|332|332
+410-00-00-000|INGRESOS ORDINARIOS|2|333|333
+411-00-00-000|VENTAS ORDINARIAS|3|334|334
+411-01-00-000|VENTAS|4|335|335
+411-01-01-000|Venta de Mercaderias|5|336|336
+412-00-00-000|SERVICIOS|3|337|337
+413-00-00-000|OTROS|3|338|338
+420-00-00-000|INGRESOS EXTRAORDINARIOS|2|339|339
+420-01-00-000|VENTAS EXTRAORDINARIAS|4|340|340
+420-01-01-000|Venta de Activos Fijos|5|341|341
+420-01-02-000|Otros Ingresos|5|342|342
+420-02-00-000|AJUSTES|4|343|343
+420-02-01-000|Ajuste a Gestiones anteriores|5|344|344
+420-02-02-000|Ajuste por Inflación y Ten. Bienes|5|345|345
+500-00-00-000|E G R E S O S|1|346|346
+510-00-00-000|EGRESOS ORDINARIOS|2|347|347
+511-00-00-000|COSTOS OPERATIVOS|3|348|348
+511-01-00-000|COSTOS|4|349|349
+511-01-01-000|Costo de Ventas|5|350|350
+512-00-00-000|GASTOS OPERATIVOS|3|351|351
+512-01-00-000|GASTOS DE COMERCIALIZACION|4|352|352
+512-01-01-000|Propaganda y Publicidad|5|353|353
+512-01-02-000|Gastos de Representación|5|354|354
+512-01-03-000|Pasajes y Viaticos|5|355|355
+512-01-04-000|Transporte de Mercaderias|5|356|356
+512-01-05-000|Muestras y pruebas de Mercaderias|5|357|357
+512-01-06-000|Perdida en Importaciones|5|358|358
+512-02-00-000|GASTOS ADMINISTRATIVOS|4|359|359
+512-02-01-000|Servicios Básicos|5|360|360
+512-02-01-010|Energía Eléctrica|6|361|361
+512-02-01-020|Tasa por Aseo y Alumbrado público|6|362|362
+512-02-01-030|Agua potable|6|363|363
+512-02-01-040|Servicio de Telefonía|6|364|364
+512-02-01-050|Servicio de Internet|6|365|365
+512-02-01-060|Gas Domiciliario|6|366|366
+512-02-02-000|Gastos de Oficina|5|367|367
+512-02-02-010|Material de Escritorio|6|368|368
+512-02-02-020|Refrigerio y servicio de té|6|369|369
+512-02-02-030|Movilidades, combustible, parqueos|6|370|370
+512-02-02-040|Tramites y gastos Legales|6|371|371
+512-02-02-050|Material de aseo y limpieza|6|372|372
+512-02-02-060|Mantenimientos y Reparaciones|6|373|373
+512-02-02-070|Correo y Courier|6|374|374
+512-02-02-080|Material y Equipo de Seguridad|6|375|375
+512-02-02-090|Donaciones y regalos|6|376|376
+512-02-02-100|Varios gastos de oficina|6|377|377
+512-02-02-110|Cursos y Capacitaciones|6|378|378
+512-02-03-000|Alquileres|5|379|379
+512-02-04-000|Seguros|5|380|380
+512-02-05-000|Servicios y Honorarios profesionales|5|381|381
+512-03-00-000|SUELDOS Y CARGAS SOCIALES|4|382|382
+512-03-01-000|Sueldos y Salarios|5|383|383
+512-03-02-000|Aportes Patronales|5|384|384
+512-03-03-000|Aguinaldos|5|385|385
+512-03-04-000|Beneficios Sociales|5|386|386
+512-03-05-000|Indemnizaciones|5|387|387
+512-03-06-000|Primas - Bonos|5|388|388
+512-03-07-000|Vacaciones|5|389|389
+512-04-00-000|DEPRECIACIONES Y AMORTIZACIONES|4|390|390
+512-04-01-000|Depreciación de Activos Fijos|5|391|391
+512-04-02-000|Amortización de Activos Fijos|5|392|392
+512-05-00-000|IMPUESTOS Y ACCESORIOS|4|393|393
+512-05-01-000|Impuesto a las Transacciones|5|394|394
+512-05-02-000|Impuestos Municipales|5|395|395
+512-05-03-000|Otros Impuestos|5|396|396
+512-05-04-000|Multas y cargos impositivos|5|397|397
+512-05-05-000|Accesorios y mantenimientos|5|398|398
+512-05-06-000|I.V.A. Cargado al gasto|5|399|399
+512-06-00-000|GASTOS FINANCIEROS|4|400|400
+512-06-01-000|Gastos Bancarios|5|401|401
+512-06-02-000|Interes Bancarios|5|402|402
+512-06-03-000|Interes con Terceros|5|403|403
+512-06-04-000|Impuesto a las Transacc. Financ.|5|404|404
+512-06-05-000|Otros gastos financieros|5|405|405
+520-00-00-000|EGRESOS EXTRAORDINARIOS|2|406|406
+520-01-00-000|EGRESOS NO OPERATIVOS|4|407|407
+520-01-01-000|Perdida en venta de Activos Fijos|5|408|408
+520-01-02-000|Perdida por baja de Activos Fijos|5|409|409
+520-02-00-000|AJUSTES|4|410|410
+520-02-01-000|Ajuste a Gestiones anteriores|5|411|411
+520-02-02-000|Ajuste por Inflación y Ten. Bienes|5|412|412
+520-02-03-000|Diferencia de Cambio|5|413|413

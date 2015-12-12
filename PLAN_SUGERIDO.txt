@@ -1,0 +1,238 @@
+1|A C T I V O||0|f|f|f|f|0|0|0|0|t|1|1|D|0
+11|ACTIVO CORRIENTE||1|f|f|f|f|0|0|0|0|t|2|1|D|0
+111|DISPONIBLE||11|f|f|f|f|0|0|0|0|t|3|1|D|0
+11101|CAJA||111|f|f|f|f|0|0|0|0|t|4|1|D|0
+111011|CAJA MN||11101|f|f|f|f|0|0|0|0|t|5|1|D|0
+11101101|Caja chica||111011|f|f|f|f|0|0|0|0|t|6|1|D|0
+11102|FONDOS FIJOS||111|f|f|f|f|0|0|0|0|t|4|1|D|0
+11103|EJECTIVOS EN TRANSITO||111|f|f|f|f|0|0|0|0|t|4|1|D|0
+11104|BANCOS Y CORRESPONSALES DEL PAÍS||111|f|f|f|f|0|0|0|0|t|4|1|D|0
+111041|BANCOS Y CORRESPONSALES DEL PAÍS MN||11104|f|f|f|f|0|0|0|0|t|5|1|D|0
+11104101|Banco Naciona de Bolivia||111041|f|f|f|f|0|0|0|0|t|6|1|D|0
+11104102|Banco Union||111041|f|f|f|f|0|0|0|0|t|6|1|D|0
+111042|BANCOS Y CORRESPONSALES DEL PAÍS ME||11104|f|f|f|f|0|0|0|0|t|5|1|D|0
+11104201|Banco Naciona de Bolivia||111042|f|f|f|f|0|0|0|0|t|6|1|D|0
+112|EXIGIBLES||11|f|f|f|f|0|0|0|0|t|3|1|D|0
+11201|CUENTAS  POR COBRAR||112|f|f|f|f|0|0|0|0|t|4|1|D|0
+112011|CLIENTES MN||11201|f|f|f|f|0|0|0|0|t|5|1|D|0
+11201101|Clientes varios||112011|f|f|f|f|0|0|0|0|t|6|1|D|0
+112012|CLIENTES ME||11201|f|f|f|f|0|0|0|0|t|5|1|D|0
+11201201|Clientes varios||112012|f|f|f|f|0|0|0|0|t|6|1|D|0
+11202|CUENTAS FISCALES||112|f|f|f|f|0|0|0|0|t|4|1|D|0
+112021|CREDITO FISCAL I.V.A. MN||11202|f|f|f|f|0|0|0|0|t|5|1|D|0
+1120201|Crédito Fiscal I.V.A.||112021|f|f|f|f|0|0|0|0|t|6|1|D|0
+11203|CUENTA CORRIENTE SOCIOS||112|f|f|f|f|0|0|0|0|t|4|1|D|0
+112031|CUENTA CORRIENTE SOCIOS MN||11203|f|f|f|f|0|0|0|0|t|5|1|D|0
+11203101|Cuenta Corriente Socios||112031|f|f|f|f|0|0|0|0|t|6|1|D|0
+11204|ANTICIPOS AL PERSONAL||112|f|f|f|f|0|0|0|0|t|4|1|D|0
+112041|ANTICIPOS AL PERSONAL MN||11204|f|f|f|f|0|0|0|0|t|5|1|D|0
+11204101|Anticipos al Personal||112041|f|f|f|f|0|0|0|0|t|6|1|D|0
+11205|OTRAS CUENTAS POR COBRAR||112|f|f|f|f|0|0|0|0|t|4|1|D|0
+112051|OTRAS CUENTAS POR COBRAR MN||11205|f|f|f|f|0|0|0|0|t|5|1|D|0
+11205101|Cuentas con cargo a rendición||112051|f|f|f|f|0|0|0|0|t|6|1|D|0
+11205102|Varias cuentas por cobrar||112051|f|f|f|f|0|0|0|0|t|6|1|D|0
+11205103|Devoluciones por cobrar||112051|f|f|f|f|0|0|0|0|t|6|1|D|0
+113|DIFERIDO||11|f|f|f|f|0|0|0|0|t|3|1|D|0
+11301|ANTICIPOS Y ADELANTOS||113|f|f|f|f|0|0|0|0|t|4|1|D|0
+113011|ANTICIPOS Y ADELANTOS MN||11301|f|f|f|f|0|0|0|0|t|5|1|D|0
+11301101|Anticipos varios||113011|f|f|f|f|0|0|0|0|t|6|1|D|0
+11301102|I.T. pagado por anticipado||113011|f|f|f|f|0|0|0|0|t|6|1|D|0
+11301103|Internet por anticipado||113011|f|f|f|f|0|0|0|0|t|6|1|D|0
+114|REALIZABLE||11|f|f|f|f|0|0|0|0|t|3|1|D|0
+11401|EXISTENCIA DE MERCADERIAS||114|f|f|f|f|0|0|0|0|t|4|1|D|0
+114011|EXISTENCIA DE MERCADERIAS MN||11401|f|f|f|f|0|0|0|0|t|5|1|D|0
+11401101|Cables y Alambres||114011|f|f|f|f|0|0|0|0|t|6|1|D|0
+11401102|Anclajes, Cuñas y porta cuñas||114011|f|f|f|f|0|0|0|0|t|6|1|D|0
+11401103|Alambre de pretensado 3.8 mm||114011|f|f|f|f|0|0|0|0|t|6|1|D|0
+11401104|Alambre de pretensado 4.0 mm||114011|f|f|f|f|0|0|0|0|t|6|1|D|0
+11401105|Cordón de Pretensado 2x2.25 mm||114011|f|f|f|f|0|0|0|0|t|6|1|D|0
+11401106|Cordon de Pretensado 3x2.25 mm||114011|f|f|f|f|0|0|0|0|t|6|1|D|0
+11401107|Cordón de Pretensado 3x3.00 mm||114011|f|f|f|f|0|0|0|0|t|6|1|D|0
+11402|MERCADERIAS EN TRANSITO||114|f|f|f|f|0|0|0|0|t|4|1|D|0
+114021|MERCADERIAS EN TRANSITO MN||11402|f|f|f|f|0|0|0|0|t|5|1|D|0
+11402101|Mercaderias en Transito||114021|f|f|f|f|0|0|0|0|t|6|1|D|0
+12|ACTIVO NO CORRIENTE||1|f|f|f|f|0|0|0|0|t|2|1|D|0
+121|BIENES DE USO||12|f|f|f|f|0|0|0|0|t|3|1|D|0
+12101|MUEBLES Y ENSERES||121|f|f|f|f|0|0|0|0|t|4|1|D|0
+121011|MUEBLES Y ENSERES MN||12101|f|f|f|f|0|0|0|0|t|5|1|D|0
+12101101|Costo de Muebles y Enseres||121011|f|f|f|f|0|0|0|0|t|6|1|D|0
+12101102|Depreciación acumulada Muebles E.||121011|f|f|f|f|0|0|0|0|t|6|1|D|0
+12102|EQUIPO DE COMPUTACION||121|f|f|f|f|0|0|0|0|t|4|1|D|0
+121021|EQUIPO DE COMPUTACION MN||12102|f|f|f|f|0|0|0|0|t|5|1|D|0
+12102101|Costo Equipo de Computación||121021|f|f|f|f|0|0|0|0|t|6|1|D|0
+12102102|Depreciación acumulada Equipo de computación||121021|f|f|f|f|0|0|0|0|t|6|1|D|0
+12103|MAQUINARIA Y EQUIPO||121|f|f|f|f|0|0|0|0|t|4|1|D|0
+121031|MAQUINARIA Y EQUIPO MN||12103|f|f|f|f|0|0|0|0|t|5|1|D|0
+12103101|Costo Maquinaria y Equipo||121031|f|f|f|f|0|0|0|0|t|6|1|D|0
+12103102|Depreciación acumulada Maquinaria y equipo||121031|f|f|f|f|0|0|0|0|t|6|1|D|0
+12104|VEHICULOS||121|f|f|f|f|0|0|0|0|t|4|1|D|0
+121041|VEHICULOS MN||12104|f|f|f|f|0|0|0|0|t|5|1|D|0
+12104101|Costo Vehiculos||121041|f|f|f|f|0|0|0|0|t|6|1|D|0
+12104102|Depreciación acumulada Vehiculos||121041|f|f|f|f|0|0|0|0|t|6|1|D|0
+122|INTANGIBLE||12|f|f|f|f|0|0|0|0|t|3|1|D|0
+123|DIFERIDO||12|f|f|f|f|0|0|0|0|t|3|1|D|0
+12301|ANTICIPOS Y ADELANTOS||123|f|f|f|f|0|0|0|0|t|4|1|D|0
+123011|ANTICIPOS Y ADELANTOS MN||12301|f|f|f|f|0|0|0|0|t|5|1|D|0
+12301101|Gastos de Organización||123011|f|f|f|f|0|0|0|0|t|6|1|D|0
+124|OTROS ACTIVOS||12|f|f|f|f|0|0|0|0|t|3|1|D|0
+12401|SOFTWARE||124|f|f|f|f|0|0|0|0|t|4|1|D|0
+124011|SOFTWARE MN||12401|f|f|f|f|0|0|0|0|t|5|1|D|0
+12401101|Sistema contable MACONT||124011|f|f|f|f|0|0|0|0|t|6|1|D|0
+12401102|Amortización Sistema Contable||124011|f|f|f|f|0|0|0|0|t|6|1|D|0
+12401103|Sistema de Facturación||124011|f|f|f|f|0|0|0|0|t|6|1|D|0
+12401104|Amortizacion Siost. Facturac.||124011|f|f|f|f|0|0|0|0|t|6|1|D|0
+2|P A S I V O||0|f|f|f|f|0|0|0|0|t|1|2|A|0
+21|PASIVO CORRIENTE||2|f|f|f|f|0|0|0|0|t|2|2|A|0
+211|EXIGIBLE||21|f|f|f|f|0|0|0|0|t|3|2|A|0
+21101|CUENTAS POR PAGAR||211|f|f|f|f|0|0|0|0|t|4|2|A|0
+211011|CUENTAS POR PAGAR MN||21101|f|f|f|f|0|0|0|0|t|5|2|A|0
+21101101|Proveedores por pagar||211011|f|f|f|f|0|0|0|0|t|6|2|A|0
+21101102|Devoluciones por pagar||211011|f|f|f|f|0|0|0|0|t|6|2|A|0
+21101103|Sueldos por pagar||211011|f|f|f|f|0|0|0|0|t|6|2|A|0
+21101104|Servicios personales por pagar||211011|f|f|f|f|0|0|0|0|t|6|2|A|0
+21101105|Servicios básicos por pagar||211011|f|f|f|f|0|0|0|0|t|6|2|A|0
+21101106|Alquileres por pagar||211011|f|f|f|f|0|0|0|0|t|6|2|A|0
+21101107|Honorarios Profesionales||211011|f|f|f|f|0|0|0|0|t|6|2|A|0
+21101108|Aportes (Laboral - Patronal) por pagar||211011|f|f|f|f|0|0|0|0|t|6|2|A|0
+21101109|Pagos anticipados realizados||211011|f|f|f|f|0|0|0|0|t|6|2|A|0
+21101110|Varias cuentas por pagar||211011|f|f|f|f|0|0|0|0|t|6|2|A|0
+21102|CUENTAS FISCALES||211|f|f|f|f|0|0|0|0|t|4|2|A|0
+211021|CUENTAS FISCALES MN||21102|f|f|f|f|0|0|0|0|t|5|2|A|0
+21102101|Débito Fiscal I.V.A.||211021|f|f|f|f|0|0|0|0|t|6|2|A|0
+21102102|Impuesto a las Transacciones||211021|f|f|f|f|0|0|0|0|t|6|2|A|0
+21102103|RC-IVA Dependientes||211021|f|f|f|f|0|0|0|0|t|6|2|A|0
+21102104|Impuesto a las Utilidades -Servicios||211021|f|f|f|f|0|0|0|0|t|6|2|A|0
+21102105|Impuesto a las Utilidades -Bienes||211021|f|f|f|f|0|0|0|0|t|6|2|A|0
+21102106|Impuesto a las Transacc. -Terceros||211021|f|f|f|f|0|0|0|0|t|6|2|A|0
+21102107|Impuesto a las Utilidades Empresas||211021|f|f|f|f|0|0|0|0|t|6|2|A|0
+21102108|RC-IVA Retenciones||211021|f|f|f|f|0|0|0|0|t|6|2|A|0
+21103|PRESTAMOS POR PAGAR||211|f|f|f|f|0|0|0|0|t|4|2|A|0
+211031|PRESTAMOS POR PAGAR MN||21103|f|f|f|f|0|0|0|0|t|5|2|A|0
+21103101|Prestamos personales||211031|f|f|f|f|0|0|0|0|t|6|2|A|0
+21103102|Banco Nacional de Bolivia||211031|f|f|f|f|0|0|0|0|t|6|2|A|0
+21103103|Intereses presonales||211031|f|f|f|f|0|0|0|0|t|6|2|A|0
+212|PROVISIONES||21|f|f|f|f|0|0|0|0|t|3|2|A|0
+21201|BENEFICIOS SOCIALES||212|f|f|f|f|0|0|0|0|t|4|2|A|0
+212011|BENEFICIOS SOCIALES MN||21201|f|f|f|f|0|0|0|0|t|5|2|A|0
+21201101|Indemnizaciones||212011|f|f|f|f|0|0|0|0|t|6|2|A|0
+21201102|Aguinaldos||212011|f|f|f|f|0|0|0|0|t|6|2|A|0
+21201103|Primas - Bonos||212011|f|f|f|f|0|0|0|0|t|6|2|A|0
+21201104|Vacaciones||212011|f|f|f|f|0|0|0|0|t|6|2|A|0
+21201105|Otros descuentos||212011|f|f|f|f|0|0|0|0|t|6|2|A|0
+22|PASIVO NO CORRIENTE||2|f|f|f|f|0|0|0|0|t|2|2|A|0
+221|OBLIGACIONES BANCARIAS||22|f|f|f|f|0|0|0|0|t|3|2|A|0
+222|PREVISIONES||22|f|f|f|f|0|0|0|0|t|3|2|A|0
+223|OTROS||22|f|f|f|f|0|0|0|0|t|3|2|A|0
+3|P A T R I M O N I O||0|f|f|f|f|0|0|0|0|t|1|3|A|0
+31|CAPITAL SOCIAL||3|f|f|f|f|0|0|0|0|t|2|3|A|0
+311|APORTES DE CAPITAL||31|f|f|f|f|0|0|0|0|t|3|3|A|0
+31101|SOCIOS||311|f|f|f|f|0|0|0|0|t|4|3|A|0
+311011|SOCIOS MN||31101|f|f|f|f|0|0|0|0|t|5|3|A|0
+31101101|Socios||311011|f|f|f|f|0|0|0|0|t|6|3|A|0
+312|RESERVAS Y RESULTADOS||31|f|f|f|f|0|0|0|0|t|3|3|A|0
+31201|RESERVAS||312|f|f|f|f|0|0|0|0|t|4|3|A|0
+312011|RESERVAS MN||31201|f|f|f|f|0|0|0|0|t|5|3|A|0
+31201101|Ajuste a Capital||312011|f|f|f|f|0|0|0|0|t|6|3|A|0
+31201102|Reserva Legal||312011|f|f|f|f|0|0|0|0|t|6|3|A|0
+31201105|Ajuste a Reservas Patrimoniales||312011|f|f|f|f|0|0|0|0|t|6|3|A|0
+31202|RESULTADOS||312|f|f|f|f|0|0|0|0|t|4|3|A|0
+312021|RESULTADOS MN||31202|f|f|f|f|0|0|0|0|t|5|3|A|0
+31202101|Resultados Acumulados||312021|f|f|f|f|0|0|0|0|t|6|3|A|0
+31202102|Resultado del Ejercicio||312021|f|f|f|f|0|0|0|0|t|6|3|A|0
+31202103|Ajuste a Resultados||312021|f|f|f|f|0|0|0|0|t|6|3|A|0
+4|I N G R E S O S||0|f|f|f|f|0|0|0|0|t|1|4|A|0
+41|INGRESOS ORDINARIOS||4|f|f|f|f|0|0|0|0|t|2|4|A|0
+411|VENTAS ORDINARIAS||41|f|f|f|f|0|0|0|0|t|3|4|A|0
+41101|VENTAS||411|f|f|f|f|0|0|0|0|t|4|4|A|0
+411011|VENTAS MN||41101|f|f|f|f|0|0|0|0|t|5|4|A|0
+41101101|Venta de Mercaderias||411011|f|f|f|f|0|0|0|0|t|6|4|A|0
+412|SERVICIOS||41|f|f|f|f|0|0|0|0|t|3|4|A|0
+413|OTROS||41|f|f|f|f|0|0|0|0|t|3|4|A|0
+42|INGRESOS EXTRAORDINARIOS||4|f|f|f|f|0|0|0|0|t|2|4|A|0
+421|VENTAS EXTRAORDINARIAS||42|f|f|f|f|0|0|0|0|t|3|4|A|0
+42101|VENTAS EXTRAORDINARIAS||421|f|f|f|f|0|0|0|0|t|4|4|A|0
+421011|VENTAS EXTRAORDINARIAS MN||42101|f|f|f|f|0|0|0|0|t|5|4|A|0
+42101101|Venta de Activos Fijos||421011|f|f|f|f|0|0|0|0|t|6|4|A|0
+42101102|Otros Ingresos||421011|f|f|f|f|0|0|0|0|t|6|4|A|0
+422|AJUSTES||42|f|f|f|f|0|0|0|0|t|3|4|A|0
+42201|AJUSTES||422|f|f|f|f|0|0|0|0|t|4|4|A|0
+422011|AJUSTES MN||42201|f|f|f|f|0|0|0|0|t|5|4|A|0
+42201101|Ajuste a Gestiones anteriores||422011|f|f|f|f|0|0|0|0|t|6|4|A|0
+42201102|Ajuste por Inflación y Ten. Bienes||422011|f|f|f|f|0|0|0|0|t|6|4|A|0
+5|E G R E S O S||0|f|f|f|f|0|0|0|0|t|1|5|D|0
+51|EGRESOS ORDINARIOS||5|f|f|f|f|0|0|0|0|t|2|5|D|0
+511|COSTOS OPERATIVOS||51|f|f|f|f|0|0|0|0|t|3|5|D|0
+51101|COSTOS||511|f|f|f|f|0|0|0|0|t|4|5|D|0
+511011|COSTOS MN||51101|f|f|f|f|0|0|0|0|t|5|5|D|0
+51101101|Costo de Ventas||511011|f|f|f|f|0|0|0|0|t|6|5|D|0
+512|GASTOS OPERATIVOS||51|f|f|f|f|0|0|0|0|t|3|5|D|0
+51201|GASTOS DE COMERCIALIZACION||512|f|f|f|f|0|0|0|0|t|4|5|D|0
+512011|GASTOS DE COMERCIALIZACION MN||51201|f|f|f|f|0|0|0|0|t|5|5|D|0
+51201101|Propaganda y Publicidad||512011|f|f|f|f|0|0|0|0|t|6|5|D|0
+51201102|Gastos de Representación||512011|f|f|f|f|0|0|0|0|t|6|5|D|0
+51201103|Pasajes y Viaticos||512011|f|f|f|f|0|0|0|0|t|6|5|D|0
+51201104|Transporte de Mercaderias||512011|f|f|f|f|0|0|0|0|t|6|5|D|0
+51201105|Muestras y pruebas de Mercaderias||512011|f|f|f|f|0|0|0|0|t|6|5|D|0
+51201106|Perdida en Importaciones||512011|f|f|f|f|0|0|0|0|t|6|5|D|0
+51202|GASTOS ADMINISTRATIVOS||512|f|f|f|f|0|0|0|0|t|4|5|D|0
+512021|GASTOS ADMINISTRATIVOS MN||51202|f|f|f|f|0|0|0|0|t|5|5|D|0
+51202101|Energía Eléctrica||512021|f|f|f|f|0|0|0|0|t|6|5|D|0
+51202102|Tasa por Aseo y Alumbrado público||512021|f|f|f|f|0|0|0|0|t|6|5|D|0
+51202103|Agua potable||512021|f|f|f|f|0|0|0|0|t|6|5|D|0
+51202104|Servicio de Telefonía||512021|f|f|f|f|0|0|0|0|t|6|5|D|0
+51202105|Servicio de Internet||512021|f|f|f|f|0|0|0|0|t|6|5|D|0
+51202106|Gas Domiciliario||512021|f|f|f|f|0|0|0|0|t|6|5|D|0
+51202107|Material de Escritorio||512021|f|f|f|f|0|0|0|0|t|6|5|D|0
+51202108|Refrigerio y servicio de té||512021|f|f|f|f|0|0|0|0|t|6|5|D|0
+51202109|Movilidades, combustible, parqueos||512021|f|f|f|f|0|0|0|0|t|6|5|D|0
+51202110|Tramites y gastos Legales||512021|f|f|f|f|0|0|0|0|t|6|5|D|0
+51202111|Material de aseo y limpieza||512021|f|f|f|f|0|0|0|0|t|6|5|D|0
+51202112|Mantenimientos y Reparaciones||512021|f|f|f|f|0|0|0|0|t|6|5|D|0
+51202113|Correo y Courier||512021|f|f|f|f|0|0|0|0|t|6|5|D|0
+51202114|Material y Equipo de Seguridad||512021|f|f|f|f|0|0|0|0|t|6|5|D|0
+51202115|Donaciones y regalos||512021|f|f|f|f|0|0|0|0|t|6|5|D|0
+51202116|Varios gastos de oficina||512021|f|f|f|f|0|0|0|0|t|6|5|D|0
+51202117|Cursos y Capacitaciones||512021|f|f|f|f|0|0|0|0|t|6|5|D|0
+51202118|Alquileres||512021|f|f|f|f|0|0|0|0|t|6|5|D|0
+51202119|Seguros||512021|f|f|f|f|0|0|0|0|t|6|5|D|0
+51202120|Servicios y Honorarios profesionales||512021|f|f|f|f|0|0|0|0|t|6|5|D|0
+51203|SUELDOS Y CARGAS SOCIALES||512|f|f|f|f|0|0|0|0|t|4|5|D|0
+512031|SUELDOS Y CARGAS SOCIALES MN||51203|f|f|f|f|0|0|0|0|t|5|5|D|0
+51203101|Sueldos y Salarios||512031|f|f|f|f|0|0|0|0|t|6|5|D|0
+51203102|Aportes Patronales||512031|f|f|f|f|0|0|0|0|t|6|5|D|0
+51203103|Aguinaldos||512031|f|f|f|f|0|0|0|0|t|6|5|D|0
+51203104|Beneficios Sociales||512031|f|f|f|f|0|0|0|0|t|6|5|D|0
+51203105|Indemnizaciones||512031|f|f|f|f|0|0|0|0|t|6|5|D|0
+51203106|Primas - Bonos||512031|f|f|f|f|0|0|0|0|t|6|5|D|0
+51203107|Vacaciones||512031|f|f|f|f|0|0|0|0|t|6|5|D|0
+51204|DEPRECIACIONES Y AMORTIZACIONES||512|f|f|f|f|0|0|0|0|t|4|5|D|0
+512041|DEPRECIACIONES Y AMORTIZACIONES MN||51204|f|f|f|f|0|0|0|0|t|5|5|D|0
+51204101|Depreciación de Activos Fijos||512041|f|f|f|f|0|0|0|0|t|6|5|D|0
+51204102|Amortización de Activos Fijos||512041|f|f|f|f|0|0|0|0|t|6|5|D|0
+51205|IMPUESTOS Y ACCESORIOS||512|f|f|f|f|0|0|0|0|t|4|5|D|0
+512051|IMPUESTOS Y ACCESORIOS MN||51205|f|f|f|f|0|0|0|0|t|5|5|D|0
+51205101|Impuesto a las Transacciones||512051|f|f|f|f|0|0|0|0|t|6|5|D|0
+51205102|Impuestos Municipales||512051|f|f|f|f|0|0|0|0|t|6|5|D|0
+51205103|Otros Impuestos||512051|f|f|f|f|0|0|0|0|t|6|5|D|0
+51205104|Multas y cargos impositivos||512051|f|f|f|f|0|0|0|0|t|6|5|D|0
+51205105|Accesorios y mantenimientos||512051|f|f|f|f|0|0|0|0|t|6|5|D|0
+51205106|I.V.A. Cargado al gasto||512051|f|f|f|f|0|0|0|0|t|6|5|D|0
+51206|GASTOS FINANCIEROS||512|f|f|f|f|0|0|0|0|t|4|5|D|0
+512061|GASTOS FINANCIEROS MN||51206|f|f|f|f|0|0|0|0|t|5|5|D|0
+51206101|Gastos Bancarios||512061|f|f|f|f|0|0|0|0|t|6|5|D|0
+51206102|Interes Bancarios||512061|f|f|f|f|0|0|0|0|t|6|5|D|0
+51206103|Interes con Terceros||512061|f|f|f|f|0|0|0|0|t|6|5|D|0
+51206104|Impuesto a las Transacc. Financ.||512061|f|f|f|f|0|0|0|0|t|6|5|D|0
+51206105|Otros gastos financieros||512061|f|f|f|f|0|0|0|0|t|6|5|D|0
+52|EGRESOS EXTRAORDINARIOS||5|f|f|f|f|0|0|0|0|t|2|5|D|0
+521|EGRESOS NO OPERATIVOS||52|f|f|f|f|0|0|0|0|t|3|5|D|0
+52101|EGRESOS NO OPERATIVOS||521|f|f|f|f|0|0|0|0|t|4|5|D|0
+521011|EGRESOS NO OPERATIVOS MN||52101|f|f|f|f|0|0|0|0|t|5|5|D|0
+52101101|Perdida en venta de Activos Fijos||521011|f|f|f|f|0|0|0|0|t|6|5|D|0
+52101102|Perdida por baja de Activos Fijos||521011|f|f|f|f|0|0|0|0|t|6|5|D|0
+522|AJUSTES||52|f|f|f|f|0|0|0|0|t|3|5|D|0
+52201|AJUSTES||522|f|f|f|f|0|0|0|0|t|4|5|D|0
+522011|AJUSTES MN||52201|f|f|f|f|0|0|0|0|t|5|5|D|0
+52201101|Ajuste a Gestiones anteriores||522011|f|f|f|f|0|0|0|0|t|6|5|D|0
+52201102|Ajuste por Inflación y Ten. Bienes||522011|f|f|f|f|0|0|0|0|t|6|5|D|0
+52201103|Diferencia de Cambio||522011|f|f|f|f|0|0|0|0|t|6|5|D|0

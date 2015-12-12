@@ -1,0 +1,59 @@
+<% provide(:title, "Ajuste") %>
+<% if @ajuste.id == nil %>      
+  <% provide(:sub_title, "Nuevo") %>
+<% else %>
+  <% provide(:sub_title, "Edicion")  %>
+<% end %>
+ <% flash.each do |severity, message| %>
+    <div data-alert class='alert-box <%= severity %>' role='dialog'>
+      <%= message %>
+      <a href='#' class='close flash-data-alert'>&times;</a>
+    </div>
+  <% end %>
+  
+<%= form_for(@ajuste) do |f| %>
+
+  <fieldset>
+    <legend></legend>
+    <div class="row">      
+      <div class="small-6 columns<%= @ajuste.errors[:tipo].any? ? " error" : "" %>">
+        <label>Tipo<small>*</small>
+        <%= f.text_field :tipo, value: Ajuste::TIPO[:UFV] %>  
+        <% unless @ajuste.errors[:tipo].blank? %>
+                <small class='error'><%= @ajuste.errors[:tipo].join(", ").html_safe %></small>
+        <% end %>
+        </label>
+      </div>
+
+      <div class="small-3 columns<%= @ajuste.errors[:fechaproceso].any? ? " error" : "" %>">
+        <%= f.label :fechaproceso,"Al" %>
+        <%= f.date_field :fechaproceso %>
+      </div>
+
+      <div class="small-3 columns">
+      </div>
+    </div>    
+
+    <div class="row">  
+      <div class="small-2 columns">
+        <%= f.label :indiceant,"Indice Anterior" %>
+        <%= f.number_field :indiceant, step: 'any'%>
+      </div>
+    
+      <div class="small-2 columns">
+          <%= f.label :indiceact,"Indice Actual" %>
+          <%= f.number_field :indiceact, step: 'any'%>
+      </div>
+      <div class="small-4 columns">
+      </div>
+     </div>
+
+  </fieldset>
+  <%= f.hidden_field :activo, :value => true %>  
+
+  <% if @ajuste.id == nil %> 
+    <%= f.submit 'Grabar', :class => 'small button' %>
+  <% else %>
+    <%= f.submit "Anular", :class => 'small button alert' %>
+  <% end %>
+<% end %>

@@ -1,0 +1,23 @@
+# # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# one:
+#   codigo: MyString
+#   nombre: MyString
+#   sigla: MyString
+#   nrocuenta: MyString
+#   tipocuenta: MyString
+#   activo: false
+#   moneda_id: 
+#   entidad_id: 
+#   catalogo_id: 
+
+# two:
+#   codigo: MyString
+#   nombre: MyString
+#   sigla: MyString
+#   nrocuenta: MyString
+#   tipocuenta: MyString
+#   activo: false
+#   moneda_id: 
+#   entidad_id: 
+#   catalogo_id: 

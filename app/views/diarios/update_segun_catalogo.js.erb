@@ -1,0 +1,7 @@
+$("#diario_diariodets_attributes_"+ <%= params[:item] -%>+"_moneda_id").val("<%= @b.cuenta_config.moneda -%>"); 
+$("#diario_diariodets_attributes_"+ <%= params[:item] -%>+"_libauxdet_id").html("<%= escape_javascript(options_for_select(@b.cuenta_config.libro_aux1.map { |obj| [obj['name'], obj['id']] }))-%>");
+<% if @b.cuenta_config.libro_aux2.to_s == "true" %> 
+	$("#diario_diariodets_attributes_"+ <%= params[:item] -%>+"_codtlaux2").attr("readonly", true)
+<% else %>  
+    $("#diario_diariodets_attributes_"+ <%= params[:item] -%>+"_codtlaux2").attr("readonly", false)
+ <% end %> 

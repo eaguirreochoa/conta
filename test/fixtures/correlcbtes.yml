@@ -1,0 +1,15 @@
+# # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# one:
+#   nro: 1
+#   activo: false
+#   tipocomprobante_id: 
+#   empresa_id: 
+#   periodo_id: 
+
+# two:
+#   nro: 1
+#   activo: false
+#   tipocomprobante_id: 
+#   empresa_id: 
+#   periodo_id: 

@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<!-- saved from url=(0071)http://intertwingly.net/projects/AWDwR4/checkdepot-30/section-13.2.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></head><body><header>
+    <title>Agile Web Development with Rails, Edition 4</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="http://intertwingly.net/projects/AWDwR4/checkdepot-30/depot.css">
+  </header>
+  
+    <a href="http://intertwingly.net/projects/AWDwR4/checkdepot-30/index.html"><h1 id="banner">Agile Web Development with Rails, Edition 4</h1></a>
+    <p>
+      <a href="http://intertwingly.net/projects/AWDwR4/checkdepot-30/section-13.3.html" class="next_link">13.3 Playtime</a>
+      <a href="http://intertwingly.net/projects/AWDwR4/checkdepot-30/section-13.1.html" class="prev_link">13.1 Iteration H1: Email Notifications</a>
+    </p>
+    <a class="toc">
+      <h2>13.2 Iteration H2: Integration Tests</h2>
+    </a>
+    <p class="note">Create an integration test</p>
+    <pre class="stdin">rails generate integration_test user_stories</pre>
+    <pre class="logger">      invoke  test_unit</pre>
+    <pre class="logger">      create    test/integration/user_stories_test.rb</pre>
+    <pre class="stdin">edit test/integration/user_stories_test.rb</pre>
+    <pre class="stdout">require 'test_helper'</pre>
+    <pre class="stdout"> </pre>
+    <pre class="stdout">class UserStoriesTest &lt; ActionDispatch::IntegrationTest</pre>
+    <pre class="hilight">  fixtures :products</pre>
+    <pre class="stdout"> </pre>
+    <pre class="hilight">  # A user goes to the index page. They select a product, adding it to their</pre>
+    <pre class="hilight">  # cart, and check out, filling in their details on the checkout form. When</pre>
+    <pre class="hilight">  # they submit, an order is created containing their information, along with a</pre>
+    <pre class="hilight">  # single line item corresponding to the product they added to their cart.</pre>
+    <pre class="hilight">  </pre>
+    <pre class="hilight">  test "buying a product" do</pre>
+    <pre class="hilight">    LineItem.delete_all</pre>
+    <pre class="hilight">    Order.delete_all</pre>
+    <pre class="hilight">    ruby_book = products(:ruby)</pre>
+    <pre class="stdout"> </pre>
+    <pre class="hilight">    get "/"</pre>
+    <pre class="hilight">    assert_response :success</pre>
+    <pre class="hilight">    assert_template "index"</pre>
+    <pre class="hilight">    </pre>
+    <pre class="hilight">    xml_http_request :post, '/line_items', :product_id =&gt; ruby_book.id</pre>
+    <pre class="hilight">    assert_response :success </pre>
+    <pre class="hilight">    </pre>
+    <pre class="hilight">    cart = Cart.find(session[:cart_id])</pre>
+    <pre class="hilight">    assert_equal 1, cart.line_items.size</pre>
+    <pre class="hilight">    assert_equal ruby_book, cart.line_items[0].product</pre>
+    <pre class="hilight">    </pre>
+    <pre class="hilight">    get "/orders/new"</pre>
+    <pre class="hilight">    assert_response :success</pre>
+    <pre class="hilight">    assert_template "new"</pre>
+    <pre class="hilight">    </pre>
+    <pre class="hilight">    post_via_redirect "/orders",</pre>
+    <pre class="hilight">                      :order =&gt; { :name     =&gt; "Dave Thomas",</pre>
+    <pre class="hilight">                                  :address  =&gt; "123 The Street",</pre>
+    <pre class="hilight">                                  :email    =&gt; "dave@example.com",</pre>
+    <pre class="hilight">                                  :pay_type =&gt; "Check" }</pre>
+    <pre class="hilight">    assert_response :success</pre>
+    <pre class="hilight">    assert_template "index"</pre>
+    <pre class="hilight">    cart = Cart.find(session[:cart_id])</pre>
+    <pre class="hilight">    assert_equal 0, cart.line_items.size</pre>
+    <pre class="hilight">    </pre>
+    <pre class="hilight">    orders = Order.all</pre>
+    <pre class="hilight">    assert_equal 1, orders.size</pre>
+    <pre class="hilight">    order = orders[0]</pre>
+    <pre class="hilight">    </pre>
+    <pre class="hilight">    assert_equal "Dave Thomas",      order.name</pre>
+    <pre class="hilight">    assert_equal "123 The Street",   order.address</pre>
+    <pre class="hilight">    assert_equal "dave@example.com", order.email</pre>
+    <pre class="hilight">    assert_equal "Check",            order.pay_type</pre>
+    <pre class="hilight">    </pre>
+    <pre class="hilight">    assert_equal 1, order.line_items.size</pre>
+    <pre class="hilight">    line_item = order.line_items[0]</pre>
+    <pre class="hilight">    assert_equal ruby_book, line_item.product</pre>
+    <pre class="stdout"> </pre>
+    <pre class="hilight">    mail = ActionMailer::Base.deliveries.last</pre>
+    <pre class="hilight">    assert_equal ["dave@example.com"], mail.to</pre>
+    <pre class="hilight">    assert_equal 'Sam Ruby &lt;depot@example.com&gt;', mail[:from].value</pre>
+    <pre class="hilight">    assert_equal "Pragmatic Store Order Confirmation", mail.subject</pre>
+    <pre class="stdout">  end</pre>
+    <pre class="stdout">end</pre>
+    <p class="note">Run the tests</p>
+    <pre class="stdin">rake test:integration</pre>
+    <pre class="stdout">Loaded suite /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/rake-0.9.2.2/lib/rake/rake_test_loader</pre>
+    <pre class="stdout">Started</pre>
+    <pre class="stdout">.</pre>
+    <pre class="stdout">Finished in 0.598739 seconds.</pre>
+    <pre class="stdout"> </pre>
+    <pre class="stdout">1 tests, 20 assertions, 0 failures, 0 errors</pre>
+    <p class="note">Create an integration test using a DSL</p>
+    <pre class="stdin">rails generate integration_test user_stories</pre>
+    <pre class="logger">      invoke  test_unit</pre>
+    <pre class="stderr">    conflict    test/integration/user_stories_test.rb</pre>
+    <pre class="stderr">/home/rubys/git/rails/activesupport/lib/active_support/whiny_nil.rb:48:in `method_missing': undefined method `strip' for nil:NilClass (NoMethodError)</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/shell/basic.rb:42:in `ask'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/shell/basic.rb:176:in `file_collision'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/actions/create_file.rb:100:in `force_on_collision?'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/actions/create_file.rb:93:in `force_or_skip_or_conflict'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/actions/create_file.rb:77:in `on_conflict_behavior'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/actions/empty_directory.rb:111:in `invoke_with_conflict_check'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/actions/create_file.rb:61:in `invoke!'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/actions.rb:95:in `action'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/actions/create_file.rb:26:in `create_file'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/actions/file_manipulation.rb:110:in `template'</pre>
+    <pre class="stderr">	from /home/rubys/git/rails/railties/lib/rails/generators/test_unit/integration/integration_generator.rb:9:in `create_test_files'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/task.rb:22:in `send'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/task.rb:22:in `run'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/invocation.rb:118:in `invoke_task'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/invocation.rb:124:in `invoke_all'</pre>
+    <pre class="stderr">	from /home/rubys/git/rails/activesupport/lib/active_support/dependencies.rb:242:in `map'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/core_ext/ordered_hash.rb:75:in `each'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/invocation.rb:124:in `map'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/invocation.rb:124:in `invoke_all'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/group.rb:226:in `dispatch'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/invocation.rb:109:in `send'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/invocation.rb:109:in `invoke'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/group.rb:269:in `_invoke_for_class_method'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/shell.rb:74:in `with_padding'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/group.rb:258:in `_invoke_for_class_method'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/group.rb:134:in `_invoke_from_option_integration_tool'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/task.rb:22:in `send'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/task.rb:22:in `run'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/invocation.rb:118:in `invoke_task'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/invocation.rb:124:in `invoke_all'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/shell.rb:14:in `map'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/core_ext/ordered_hash.rb:75:in `each'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/invocation.rb:124:in `map'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/invocation.rb:124:in `invoke_all'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/group.rb:226:in `dispatch'</pre>
+    <pre class="stderr">	from /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/thor-0.14.6/lib/thor/base.rb:389:in `start'</pre>
+    <pre class="stderr">	from /home/rubys/git/rails/railties/lib/rails/generators.rb:163:in `invoke'</pre>
+    <pre class="stderr">	from /home/rubys/git/rails/railties/lib/rails/commands/generate.rb:10</pre>
+    <pre class="stderr">	from /home/rubys/git/rails/activesupport/lib/active_support/dependencies.rb:242:in `require'</pre>
+    <pre class="stderr">	from /home/rubys/git/rails/activesupport/lib/active_support/dependencies.rb:242:in `require'</pre>
+    <pre class="stderr">	from /home/rubys/git/rails/activesupport/lib/active_support/dependencies.rb:225:in `load_dependency'</pre>
+    <pre class="stdout">  Overwrite /home/rubys/git/awdwr/edition4/work-30/depot/test/integration/user_stories_test.rb? (enter "h" for help) [Ynaqdh] </pre>
+    <pre class="stderr">	from /home/rubys/git/rails/activesupport/lib/active_support/dependencies.rb:597:in `new_constants_in'</pre>
+    <pre class="stderr">	from /home/rubys/git/rails/activesupport/lib/active_support/dependencies.rb:225:in `load_dependency'</pre>
+    <pre class="stderr">	from /home/rubys/git/rails/activesupport/lib/active_support/dependencies.rb:242:in `require'</pre>
+    <pre class="stderr">	from /home/rubys/git/rails/railties/lib/rails/commands.rb:17</pre>
+    <pre class="stderr">	from script/rails:6:in `require'</pre>
+    <pre class="stderr">	from script/rails:6</pre>
+    <pre class="stdin">edit test/integration/dsl_user_stories_test.rb</pre>
+    <pre class="hilight">require 'test_helper'</pre>
+    <pre class="hilight"> </pre>
+    <pre class="hilight">class DslUserStoriesTest &lt; ActionController::IntegrationTest</pre>
+    <pre class="hilight">  fixtures :products</pre>
+    <pre class="hilight"> </pre>
+    <pre class="hilight"> </pre>
+    <pre class="hilight">  DAVES_DETAILS = {</pre>
+    <pre class="hilight">      :name     =&gt; "Dave Thomas",</pre>
+    <pre class="hilight">      :address  =&gt; "123 The Street",</pre>
+    <pre class="hilight">      :email    =&gt; "dave@example.com",</pre>
+    <pre class="hilight">      :pay_type =&gt; "Check"</pre>
+    <pre class="hilight">  }</pre>
+    <pre class="hilight"> </pre>
+    <pre class="hilight">  MIKES_DETAILS = {</pre>
+    <pre class="hilight">      :name     =&gt; "Mike Clark",</pre>
+    <pre class="hilight">      :address  =&gt; "345 The Avenue",</pre>
+    <pre class="hilight">      :email    =&gt; "mike@pragmaticstudio.com",</pre>
+    <pre class="hilight">      :pay_type =&gt; "Credit card"</pre>
+    <pre class="hilight">  }</pre>
+    <pre class="hilight">  </pre>
+    <pre class="hilight">  </pre>
+    <pre class="hilight">    </pre>
+    <pre class="hilight">  def setup</pre>
+    <pre class="hilight">    LineItem.delete_all</pre>
+    <pre class="hilight">    Order.delete_all</pre>
+    <pre class="hilight">    @ruby_book = products(:ruby)</pre>
+    <pre class="hilight">    @rails_book = products(:two)</pre>
+    <pre class="hilight">  end </pre>
+    <pre class="hilight">  </pre>
+    <pre class="hilight">  # A user goes to the store index page. They select a product,</pre>
+    <pre class="hilight">  # adding it to their cart. They then check out, filling in</pre>
+    <pre class="hilight">  # their details on the checkout form. When they submit,</pre>
+    <pre class="hilight">  # an order is created in the database containing</pre>
+    <pre class="hilight">  # their information, along with a single line item</pre>
+    <pre class="hilight">  # corresponding to the product they added to their cart.</pre>
+    <pre class="hilight">  </pre>
+    <pre class="hilight">  def test_buying_a_product</pre>
+    <pre class="hilight">    dave = regular_user</pre>
+    <pre class="hilight">    dave.get "/"</pre>
+    <pre class="hilight">    dave.is_viewing "index"</pre>
+    <pre class="hilight">    dave.buys_a @ruby_book</pre>
+    <pre class="hilight">    dave.has_a_cart_containing @ruby_book</pre>
+    <pre class="hilight">    dave.checks_out DAVES_DETAILS</pre>
+    <pre class="hilight">    dave.is_viewing "index"</pre>
+    <pre class="hilight">    check_for_order DAVES_DETAILS, @ruby_book</pre>
+    <pre class="hilight">  end</pre>
+    <pre class="hilight"> </pre>
+    <pre class="hilight">  def test_two_people_buying</pre>
+    <pre class="hilight">    dave = regular_user</pre>
+    <pre class="hilight">        mike = regular_user</pre>
+    <pre class="hilight">    dave.buys_a @ruby_book</pre>
+    <pre class="hilight">        mike.buys_a @rails_book</pre>
+    <pre class="hilight">    dave.has_a_cart_containing @ruby_book</pre>
+    <pre class="hilight">    dave.checks_out DAVES_DETAILS</pre>
+    <pre class="hilight">        mike.has_a_cart_containing @rails_book</pre>
+    <pre class="hilight">    check_for_order DAVES_DETAILS, @ruby_book</pre>
+    <pre class="hilight">        mike.checks_out MIKES_DETAILS</pre>
+    <pre class="hilight">        check_for_order MIKES_DETAILS, @rails_book</pre>
+    <pre class="hilight">  end</pre>
+    <pre class="hilight">  </pre>
+    <pre class="hilight">  def regular_user</pre>
+    <pre class="hilight">    open_session do |user|</pre>
+    <pre class="hilight">      def user.is_viewing(page)</pre>
+    <pre class="hilight">        assert_response :success</pre>
+    <pre class="hilight">        assert_template page</pre>
+    <pre class="hilight">      end</pre>
+    <pre class="hilight">    </pre>
+    <pre class="hilight">      def user.buys_a(product)</pre>
+    <pre class="hilight">        xml_http_request :post, '/line_items', :product_id =&gt; product.id</pre>
+    <pre class="hilight">        assert_response :success </pre>
+    <pre class="hilight">      end</pre>
+    <pre class="hilight">    </pre>
+    <pre class="hilight">      def user.has_a_cart_containing(*products)</pre>
+    <pre class="hilight">        cart = Cart.find(session[:cart_id])</pre>
+    <pre class="hilight">        assert_equal products.size, cart.line_items.size</pre>
+    <pre class="hilight">        cart.line_items.each do |item|</pre>
+    <pre class="hilight">          assert products.include?(item.product)</pre>
+    <pre class="hilight">        end</pre>
+    <pre class="hilight">      end</pre>
+    <pre class="hilight">    </pre>
+    <pre class="hilight">      def user.checks_out(details)</pre>
+    <pre class="hilight">        get "/orders/new"</pre>
+    <pre class="hilight">        assert_response :success</pre>
+    <pre class="hilight">        assert_template "new"</pre>
+    <pre class="hilight"> </pre>
+    <pre class="hilight">       post_via_redirect "/orders",</pre>
+    <pre class="hilight">                          :order =&gt; { :name     =&gt; details[:name],</pre>
+    <pre class="hilight">                                     :address  =&gt; details[:address],</pre>
+    <pre class="hilight">                                     :email    =&gt; details[:email],</pre>
+    <pre class="hilight">                                     :pay_type =&gt; details[:pay_type]</pre>
+    <pre class="hilight">                                    }</pre>
+    <pre class="hilight">        assert_response :success</pre>
+    <pre class="hilight">        assert_template "index"</pre>
+    <pre class="hilight">        cart = Cart.find(session[:cart_id])</pre>
+    <pre class="hilight">        assert_equal 0, cart.line_items.size</pre>
+    <pre class="hilight">      end</pre>
+    <pre class="hilight">    end  </pre>
+    <pre class="hilight">  end</pre>
+    <pre class="hilight">  </pre>
+    <pre class="hilight">  def check_for_order(details, *products)</pre>
+    <pre class="hilight">    order = Order.find_by_name(details[:name])</pre>
+    <pre class="hilight">    assert_not_nil order</pre>
+    <pre class="hilight">    </pre>
+    <pre class="hilight">    assert_equal details[:name],     order.name</pre>
+    <pre class="hilight">    assert_equal details[:address],  order.address</pre>
+    <pre class="hilight">    assert_equal details[:email],    order.email</pre>
+    <pre class="hilight">    assert_equal details[:pay_type], order.pay_type</pre>
+    <pre class="hilight">    </pre>
+    <pre class="hilight">    assert_equal products.size, order.line_items.size</pre>
+    <pre class="hilight">    for line_item in order.line_items</pre>
+    <pre class="hilight">      assert products.include?(line_item.product)</pre>
+    <pre class="hilight">    end</pre>
+    <pre class="hilight"> </pre>
+    <pre class="hilight">    mail = ActionMailer::Base.deliveries.last</pre>
+    <pre class="hilight">    assert_equal order.email,           mail[:to].value</pre>
+    <pre class="hilight">    for line_item in order.line_items</pre>
+    <pre class="hilight">      assert_operator mail.body.to_s, :include?, line_item.product.title</pre>
+    <pre class="hilight">    end</pre>
+    <pre class="hilight">  end</pre>
+    <pre class="hilight">end</pre>
+    <p class="note">Run the tests</p>
+    <pre class="stdin">rake test:integration</pre>
+    <pre class="stdout">Loaded suite /home/rubys/.rvm/gems/ruby-1.8.7-p352/gems/rake-0.9.2.2/lib/rake/rake_test_loader</pre>
+    <pre class="stdout">Started</pre>
+    <pre class="stdout">...</pre>
+    <pre class="stdout">Finished in 1.262287 seconds.</pre>
+    <pre class="stdout"> </pre>
+    <pre class="stdout">3 tests, 75 assertions, 0 failures, 0 errors</pre>
+    <p>
+      <a href="http://intertwingly.net/projects/AWDwR4/checkdepot-30/section-13.3.html" class="next_link">13.3 Playtime</a>
+      <a href="http://intertwingly.net/projects/AWDwR4/checkdepot-30/section-13.1.html" class="prev_link">13.1 Iteration H1: Email Notifications</a>
+    </p>
+  
+</body></html>

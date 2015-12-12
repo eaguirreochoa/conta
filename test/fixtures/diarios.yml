@@ -1,0 +1,21 @@
+# # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# one:
+#   nrocbte: 1
+#   fechacbte: 2015-08-16 09:57:43
+#   glosagral: MyString
+#   esanulado: false
+#   estado: MyString
+#   origenasiento_id: 
+#   tipocomprobante_id: 
+#   empresa_id: 
+
+# two:
+#   nrocbte: 1
+#   fechacbte: 2015-08-16 09:57:43
+#   glosagral: MyString
+#   esanulado: false
+#   estado: MyString
+#   origenasiento_id: 
+#   tipocomprobante_id: 
+#   empresa_id: 

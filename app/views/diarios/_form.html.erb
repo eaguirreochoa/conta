@@ -1,0 +1,149 @@
+<% provide(:title, "Comprobante") %>
+<% if @diario.id == nil %>      
+  <% provide(:sub_title, "Nuevo") %>
+<% else %>
+  <% provide(:sub_title, "Edicion")  %>
+<% end %>
+
+
+<%= form_for @diario do |f| %>
+  
+     <div class="row">   
+
+       <div class="small-3 columns<%= @diario.errors[:fechacbte].any? ? " error" : "" %>">
+
+        <%= f.label :fechacbte,"Fecha:" %>
+        <% if @diario.fechacbte != nil %> 
+          <%= f.date_field :fechacbte, value: @diario.fechacbte.strftime("%Y-%m-%d")%>
+        <% else %>
+          <%= f.date_field :fechacbte, value: Time.now.strftime("%Y-%m-%d") %>
+        <% end %>
+        <% unless @diario.errors[:fechacbte].blank? %>
+                <small class='error'><%= @diario.errors[:fechacbte].join(", ").html_safe %></small>
+        <% end %>
+        
+      </div>       
+      
+
+      <div class="small-2 columns">
+        <label>Tipo:
+        <%= f.select :tipocomprobante_id, @tipocomprobantes.map{ |c| [c.codigoname, "#{c.id}"] },
+                     {}, { id: "tipocomprobantes_select"} %>
+
+        <% unless @diario.errors[:tipocomprobante_id].blank? %>
+                <small class='error'><%= @diario.errors[:tipocomprobante_id].join(", ").html_safe %></small>
+        <% end %>
+        </label>        
+      </div> 
+
+      <div class="small-1 columns">
+        <label>Nro.:
+            <%= f.text_field :nrocbte%> 
+          </label>    
+      </div> 
+
+      <div class="small-2 columns">
+        <label>Tipo de cambio:
+          <%= f.number_field :tc, step: 'any', class: "tc"%>
+          <% unless @diario.errors[:tc].blank? %>
+            <small class='error'><%= @diario.errors[:tc].join(", ").html_safe %></small>
+          <% end %>
+        </label>        
+      </div> 
+       <div class="small-4 columns">
+       </div> 
+    </div>
+
+    <div class="row">   
+      <div class="small-8 columns">
+        <label>Glosa:
+          <%= f.text_field :glosagral %>
+          <% unless @diario.errors[:glosagral].blank? %>
+            <small class='error'><%= @diario.errors[:glosagral].join(", ").html_safe %></small>
+          <% end %>
+        </label>  
+      </div> 
+    </div>
+
+
+    <% if @diario.diariodets.any? %>
+      <% @diario.diariodets.each do |diariodet| %>
+        <% if diariodet.errors.any? %>
+          <div data-alert class="alert-box secondary">          
+            <ul>
+              <% diariodet.errors.each do |attribute, msg| %>
+                <li><%= msg %></li>
+              <% end %>
+            </ul>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+
+    <br> DETALLE </br>
+    <div class="text-right">
+      <%= link_to_add_association "Agregar Asiento", f, 
+                                  :diariodets, class: 'btn btn-default',
+                                  data: {
+                                      association_insertion_node: '#detail-association-insertion-point',
+                                      association_insertion_method: 'append' }
+      %>
+    </div>
+
+    <table class="table table-list">
+      <thead>
+        <tr>
+          <th width="40">Iten</th>
+          <th>Oficina</th>
+          <th>Cuenta</th>
+          <th>Nombre</th>
+          <th width="150">L.Aux 1</th>
+          <th width="80">L.Aux 2</th>
+          <th>Moneda</th>
+          <th>Debe</th>
+          <th>Haber</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody id='detail-association-insertion-point'>
+        <div class="form-group">
+        <%= f.fields_for :diariodets do |diariodet_fields| %>
+          <%= render 'diariodet_fields', f: diariodet_fields %>
+        <% end %>
+        </div>
+      </tbody>
+
+      <tfoot>
+            <td>TOTAL:</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td id = "total_debe"><%= f.object.diariodets.sum(:debe).round(2) %></td>
+            <td id = "total_haber"><%= f.object.diariodets.sum(:haber).round(2) %></td>
+            <td></td> 
+      </tfoot>
+    </table>
+
+    <!-- <label class="control-label" for="">Total</label>
+    <%= f.text_field :nrocbte, class: 'form-control total',
+                      disabled: true,
+                      value: number_to_currency(f.object.nrocbte) %> -->
+
+  <%= f.submit 'Grabar', class: 'small button' %>
+  <% if @diario.id != nil %> 
+    <%= link_to 'Anular', diarios_anular_path(id: @diario.id), class: 'small button alert' %>
+  <% end %>
+    <%= f.hidden_field :esanulado, :value => f.object.esanulado %>
+    <%= f.hidden_field :estado, :value => f.object.estado %>
+    <%= f.hidden_field :empresa_id %> 
+    <%= f.hidden_field :origenasiento_id %> 
+
+
+<% end %>
+
+  
+  

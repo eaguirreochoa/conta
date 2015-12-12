@@ -1,0 +1,71 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  numnivel: 1
+  nrodigitos: 1
+  nrodigitostotal: 1
+  esmoneda: false
+  nrodigitosmoneda: 0
+  nombre: CAPITULO
+  estransaccional: f
+  activo: t
+
+two:
+  numnivel: 2
+  nrodigitos: 1
+  nrodigitostotal: 2
+  esmoneda: f
+  nrodigitosmoneda: 0
+  nombre: TITULO
+  estransaccional: f
+  activo: t
+
+three:
+  numnivel: 3
+  nrodigitos: 1
+  nrodigitostotal: 3
+  esmoneda: f
+  nrodigitosmoneda: 0
+  nombre: GRUPO
+  estransaccional: f
+  activo: t
+
+four:
+  numnivel: 4
+  nrodigitos: 2
+  nrodigitostotal: 5
+  esmoneda: f
+  nrodigitosmoneda: 0
+  nombre: CUENTA
+  estransaccional: f
+  activo: t
+
+five:
+  numnivel: 5
+  nrodigitos: 1
+  nrodigitostotal: 6
+  esmoneda: t
+  nrodigitosmoneda: 1
+  nombre: Moneda
+  estransaccional: f
+  activo: t
+
+six:
+  numnivel: 6
+  nrodigitos: 2
+  nrodigitostotal: 8
+  esmoneda: f
+  nrodigitosmoneda: 0
+  nombre: Cuenta
+  estransaccional: f
+  activo: t
+
+seven:
+  numnivel: 7
+  nrodigitos: 2
+  nrodigitostotal: 10
+  esmoneda: f
+  nrodigitosmoneda: 0
+  nombre: Analitica de Detalle
+  estransaccional: t
+  activo: t

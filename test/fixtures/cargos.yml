@@ -1,0 +1,11 @@
+# # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# one:
+#   Codigo: 
+#   Nombre: 
+#   Activo: false
+
+# two:
+#   Codigo: 
+#   Nombre: 
+#   Activo: false

@@ -1,0 +1,26 @@
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <%= devise_error_messages! %>
+ <div class="row">
+    <div class="large-6 columns">
+      <div class="signup-panel">
+        <p class="welcome"> ¿Olvidaste tu contraseña?</p>
+        <form>
+          
+          <div class="row collapse">
+            <div class="small-2 columns">
+              <span class="prefix"><i class="fi-mail"></i></span>
+            </div>
+            <div class="small-10  columns">
+               <%= f.email_field :email, autofocus: true  %>
+            </div>
+          </div>          
+        </form>
+  		<div class="actions">
+    		<%= f.submit "Enviar mesaje", :class => 'button'%>
+  		</div> 
+  		<%= render "users/shared/links" %>
+      </div>
+    </div>
+   </div>
+ <% end %>
+

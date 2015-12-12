@@ -1,0 +1,54 @@
+# # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# one:
+#   categoria: MyString
+#   descripcion: MyString
+#   selista: false
+#   activo: false
+
+# two:
+#   categoria: MyString
+#   descripcion: MyString
+#   selista: false
+#   activo: false
+one:
+categoria: CuentaBanco
+descripcion: Cuentas Bancarias
+selista: t
+activo: t
+
+two:
+categoria: Fondo
+descripcion: Fondos
+selista: t
+activo: t
+
+three:
+categoria: Empleado
+descripcion: Empleados
+selista: t
+activo: t
+
+four:
+categoria: Oficina
+descripcion: Oficinas
+selista: t
+activo: t
+
+five:
+categoria: Proveedor
+descripcion: Proveedores
+selista: t
+activo: t
+
+six:
+categoria: Acreedor
+descripcion: Acreedores
+selista: t
+activo: t
+
+seven:
+categoria: Cliente
+descripcion: Clientes
+selista: t
+activo: t

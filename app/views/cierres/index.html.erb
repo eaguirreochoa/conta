@@ -1,0 +1,34 @@
+<% provide(:title, "Cierre del Periodo") %>
+<% provide(:sub_title, "Listado") %>
+
+ <% flash.each do |severity, message| %>
+    <div data-alert class='alert-box <%= severity %>' role='dialog'>
+      <%= message %>
+      <a href='#' class='close flash-data-alert'>&times;</a>
+    </div>
+  <% end %>
+
+
+<h1></h1> 
+<div class="row">
+  <div class="separator" >
+    <div class="medium-12 columns" >
+      <table id= "cierres_table"> 
+        <thead> 
+          <tr> 
+            <th style="display: none">ID </th>
+            <th>FECHA</th> 
+            <th>CONCEPTO</th> 
+            <th></th> 
+            <th></th>
+          </tr> 
+        </thead> 
+
+        <tbody></tbody> 
+      </table>
+    </div>  
+  </div>
+</div>
+    <br> 
+
+<%= link_to 'Nuevo', new_cierre_path, :class => 'small button'  %>

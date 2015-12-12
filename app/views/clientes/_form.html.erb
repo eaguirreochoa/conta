@@ -1,0 +1,126 @@
+<% provide(:title, "Cliente") %>
+<% if cliente.id == nil %>      
+  <% provide(:sub_title, "Nuevo") %>
+<% else %>
+  <% provide(:sub_title, "Edicion")  %>
+<% end %>
+
+<%= form_for cliente do |f| %>
+
+  <fieldset>
+    <legend>Persona Natural</legend>
+    <div class="row">
+      
+      <div class="small-4 columns<%= cliente.errors[:Nombres].any? ? " error" : "" %>">
+        <label>Nombres <small>*</small>
+        <%= f.text_field :Nombres %>   
+        <% unless cliente.errors[:Nombres].blank? %>
+                <small class='error'><%= cliente.errors[:Nombres].join(", ").html_safe %></small>
+        <% end %>
+        </label>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :Appaterno,"Apellido Paterno" %>
+        <%= f.text_field :Appaterno %>
+      </div>
+    
+      <div class="small-4 columns">
+          <%= f.label :Apmaterno,"Apellido Materno" %>
+          <%= f.text_field :Apmaterno %>
+      </div>
+
+    </div>
+
+    
+    <div class="row">  
+      <div class="small-3 columns">
+        <%= f.label :estadocivil,"Estado Civil" %>        
+        <%= f.collection_select :estadocivil, Empleado::HESTADOCIVIL, :first, :last, prompt: false %>        
+      </div>
+
+      <div class="small-4 columns<%= cliente.errors[:Apcasada].any? ? " error" : "" %>">
+        <%= f.label :Apcasada,"Apellido Casada" %>
+        <%= f.text_field :Apcasada %>
+        <% unless cliente.errors[:Apcasada].blank? %>
+                <small class='error'><%= cliente.errors[:Apcasada].join(", ").html_safe %></small>
+        <% end %>
+      </div>
+      <div class="small-4 columns">
+        
+      </div>
+    </div>
+
+    <div class="row">  
+      <div class="small-3 columns<%= cliente.errors[:fechanacimiento].any? ? " error" : "" %>">
+        <%= f.label :fechanacimiento,"Fecha de Nacimiento" %>
+        <% if cliente.fechanacimiento != nil %>      
+          <%= f.date_field :fechanacimiento, :default => cliente.fechanacimiento.strftime("%d/%m/%Y") %>
+        <% else %>
+          <%= f.date_field :fechanacimiento, :default => Time.now.strftime("%d/%m/%Y") %>
+        <% end %>
+        <% unless cliente.errors[:fechanacimiento].blank? %>
+                <small class='error'><%= cliente.errors[:fechanacimiento].join(", ").html_safe %></small>
+        <% end %>
+      </div>
+      <div class="small-4 columns">
+        <%= f.label :genero, "Genero" %> 
+             
+        <%= f.collection_radio_buttons(:genero, Empleado::HGENERO, :first, :last, prompt: true) do |b| %>          
+          <%= b.label(:"data-value" => b.value) { b.radio_button + b.text } %>
+           
+        <% end %>
+      </div>
+      <div class="small-5 columns">
+      </div>
+
+    </div>
+
+    <div class="row">  
+      <div class="small-5 columns<%= cliente.errors[:Di].any? ? " error" : "" %>">
+        <div class="row collapse">
+          <%= f.label :Di, "Documento de Identificacion" %>
+           <div class="small-2 columns">
+            <%= f.select :Dociden_id, @dis.map{ |c| [c.Sigla, "#{c.id}"] } %>
+          </div>
+          <div class="small-5 columns">
+            <%= f.text_field :Di %>
+            <% unless cliente.errors[:Di].blank? %>
+                <small class='error'><%= cliente.errors[:Di].join(", ").html_safe %></small>
+            <% end %>
+          </div>
+          <div class="small-2 columns">
+           <%= collection_select(:post, :docidenexts_id, Docidenext.all, :id, :Sigla) %>
+          </div>
+          <div class="small-3 columns">
+           
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">  
+      <div class="small-3 columns<%= cliente.errors[:Telefono].any? ? " error" : "" %>">
+        <%= f.label :Telefono %>
+        <%= f.text_field :Telefono %>
+        <% unless cliente.errors[:Telefono].blank? %>
+                <small class='error'><%= cliente.errors[:Telefono].join(", ").html_safe %></small>
+        <% end %>
+      </div>
+      <div class="small-4 columns<%= cliente.errors[:Correo].any? ? " error" : "" %>">
+        <%= f.label :Correo %>
+        <%= f.text_field :Correo %>
+        <% unless cliente.errors[:Correo].blank? %>
+                <small class='error'><%= cliente.errors[:Correo].join(", ").html_safe %></small>
+        <% end %>
+      </div>
+      <div class="small-5 columns">
+     
+      </div>
+
+    </div>
+  </fieldset>
+<%= f.hidden_field :esjuridica, :value => f.object.esjuridica %> 
+  
+  <%= f.submit 'Grabar', :class => 'small button' %>
+<% end %>

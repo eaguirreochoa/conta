@@ -1,0 +1,29 @@
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+<div class="row">
+    <div class="large-5 columns">
+      <div class="signup-panel">
+        <p class="welcome"> Bienvenido a contabilidad!!</p>
+        <form>
+          <div class="row collapse">
+            <div class="small-2  columns">
+              <span class="prefix"><i class="fa fa-user fa-fw"></i> </span>  
+            </div>
+            <div class="small-10  columns">                 
+              <%= f.text_field :login, :placeholder => "usuario"%>
+            </div>
+          </div>
+          <div class="row collapse">
+            <div class="small-2 columns ">
+              <span class="prefix"><i class="fa fa-key fa-lw"></i></span>
+            </div>
+            <div class="small-10 columns ">
+              <%= f.password_field :password, :placeholder => "password"%>
+            </div>
+          </div>
+        </form>
+        <%= f.submit "Conectar!", :class => 'button'%></br>
+        <%= render "users/shared/links" %>
+      </div>
+    </div>
+   </div>
+<% end %>

@@ -1,0 +1,43 @@
+<% provide(:title, "Clientes") %>
+<% provide(:sub_title, "Listado") %>
+<p id="notice"><%= notice %></p> 
+
+<h1></h1> 
+<div class="row">
+  <div class="separator" >
+    <div class="medium-12 columns" >
+      <table id= "clientes_table"> 
+        <thead> 
+          <tr> 
+            <th style="display: none">ID </th>
+            <th>CODIGO</th> 
+            <th>NOMBRES</th> 
+            <th>DI</th> 
+            <th></th> 
+            <th></th>
+            <th></th>
+          </tr> 
+        </thead> 
+
+        <tbody></tbody> 
+      </table>
+    </div>  
+  </div>
+</div>
+    <br> 
+
+<a href="#" data-reveal-id="myModal", class= "small button" >Nuevo</a> <br/>
+
+<div id="myModal" class="reveal-modal" data-reveal aria-labelledby="modalTitle" aria-hidden="true" role="dialog">
+  <h3 id="modalTitle">Seleccione. El tipo de Cliente:</h3>
+  <ul class="side-nav">
+  <li>    
+    <%= link_to "Natural", new_cliente_path(:id_tipo => "1") %>
+  </li>
+  <li>    
+    <%= link_to "Juridica", new_cliente_path(:id_tipo => "2") %>
+  </li>
+</ul>
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+</div>
+ 

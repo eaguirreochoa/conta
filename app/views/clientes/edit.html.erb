@@ -1,0 +1,8 @@
+<% if @cliente.esjuridica %> 
+	<%= render partial: 'clientes/formjuridica', locals: { cliente: @cliente } %>
+	 
+<% else %>
+    <%= render partial: 'clientes/form', locals: { cliente: @cliente } %>
+<% end %>
+<%= link_to 'Show', @cliente %> |
+<%= link_to 'Back', clientes_path %>

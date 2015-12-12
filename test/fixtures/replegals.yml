@@ -1,0 +1,13 @@
+# # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# one:
+#   codigo: MyString
+#   replegalable_id: 
+#   replegalable_type: Replegalable
+#   persona_id: 
+
+# two:
+#   codigo: MyString
+#   replegalable_id: 
+#   replegalable_type: Replegalable
+#   persona_id: 

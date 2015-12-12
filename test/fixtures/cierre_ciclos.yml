@@ -1,0 +1,19 @@
+# # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# one:
+#   fechaproceso: 2015-10-06 12:19:21
+#   esoficial: false
+#   iddiariocierre: 1
+#   activo: false
+#   ciclo_id: 
+#   diario_id: 
+#   user_id: 
+
+# two:
+#   fechaproceso: 2015-10-06 12:19:21
+#   esoficial: false
+#   iddiariocierre: 1
+#   activo: false
+#   ciclo_id: 
+#   diario_id: 
+#   user_id: 

@@ -1,0 +1,17 @@
+# # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# one:
+#   Zonaurbana: 
+#   Edificio: 
+#   Pisodepof: 
+#   Descripcion: MyString
+#   Persona_id: 
+#   Ubicaciongeografica_id: 
+
+# two:
+#   Zonaurbana: 
+#   Edificio: 
+#   Pisodepof: 
+#   Descripcion: MyString
+#   Persona_id: 
+#   Ubicaciongeografica_id: 

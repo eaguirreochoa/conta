@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <!-- <title>Conta</title> -->
+  <title>login </title>
+  <%= stylesheet_link_tag    'login', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "vendor/modernizr" %>
+  <%= javascript_include_tag "application", 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+</head>
+<body>
+<p class="notice"><%= notice %></p>
+<p class="alert"><%= alert %></p>
+
+<div id="user_nav"> 
+  <% if user_signed_in? %>
+    Conectado como <%= current_user.email %>. No eres t&uacute;?
+    <%= link_to "Log off", destroy_user_session_path, :method => :delete%>
+  <% end %>
+</div>
+
+<link href="http://cdnjs.cloudflare.com/ajax/libs/foundicons/3.0.0/foundation-icons.css" rel="stylesheet">
+<nav class="top-bar" data-topbar role="navigation">
+  <ul class="title-area">
+    
+    <div class="logo">
+      <a href="http://zurb.com/stickers/images/intro-foundation.png"><img src="http://zurb.com/stickers/images/intro-foundation.png" /></a>
+    </div>
+     <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
+    <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
+  </ul>
+
+  <section class="top-bar-section">
+    <!-- Right Nav Section -->
+    <ul class="right">
+      <li class=""><a href="#">Right Button Active</a></li>
+      <li class="divider"></li>
+      <li class=""><a href="#">Right Button Active</a></li>
+      <li class="divider"></li>
+      <li class="has-dropdown">
+        <a href="#">Right Button Dropdown</a>
+        <ul class="dropdown">
+          <li><a href="#">First link in dropdown</a></li>
+          <li class="active"><a href="#">Active link in dropdown</a></li>
+        </ul>
+      </li>
+    </ul>
+    <ul class="social-icons">
+      <li><a href=""><i class="fi-telephone"></i></a></li>
+      <li><a href=""><i class="fi-social-linkedin"></i></a></li>
+      <li><a href=""><i class="fi-social-twitter"></i></a></li>
+      <li><a href=""><i class="fi-social-facebook"></i></a></li>
+    </ul>
+    
+  </section>
+</nav>
+
+<%= yield %>
+
+</body>
+</html>
+''''''''''''''''''''''''''''
+aplication
+'''''''''''''''''''''''''
+  <div id="user_nav"> 
+      <% if user_signed_in? %>
+        Conectado como <%= current_user.username %>. No eres t&uacute;?
+        <%= link_to "Log off", destroy_user_session_path, :method => :delete%>
+      <% end %>
+  </div>

@@ -1,0 +1,57 @@
+# # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+# one:
+#   tlaux1: 1
+#   codtlaux2: MyString
+#   tlaux2: 2015-08-16 12:00:35
+#   codtlaux2: MyString
+#   glosa: MyString
+#   debe: 
+#   debe: 
+#   haber: 
+#   haber: 
+#   debesec: 
+#   debesec: 
+#   habersec: 
+#   habersec: 
+#   tcsec: 
+#   tcsec: 
+#   debeori: 
+#   debeori: 
+#   haberori: 
+#   haberori: 
+#   tcori: 
+#   tcori: 
+#   catalogo_id: 
+#   oficina_id: 
+#   fondo_id: 
+#   moneda_id: 
+#   user_id: 
+
+# two:
+#   tlaux1: 1
+#   codtlaux2: MyString
+#   tlaux2: 2015-08-16 12:00:35
+#   codtlaux2: MyString
+#   glosa: MyString
+#   debe: 
+#   debe: 
+#   haber: 
+#   haber: 
+#   debesec: 
+#   debesec: 
+#   habersec: 
+#   habersec: 
+#   tcsec: 
+#   tcsec: 
+#   debeori: 
+#   debeori: 
+#   haberori: 
+#   haberori: 
+#   tcori: 
+#   tcori: 
+#   catalogo_id: 
+#   oficina_id: 
+#   fondo_id: 
+#   moneda_id: 
+#   user_id: 

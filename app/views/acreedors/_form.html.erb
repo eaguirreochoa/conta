@@ -1,0 +1,127 @@
+<% provide(:title, "Acreedor") %>
+<% if acreedor.id == nil %>      
+  <% provide(:sub_title, "Nuevo") %>
+<% else %>
+  <% provide(:sub_title, "Edicion")  %>
+<% end %>
+
+<%= form_for acreedor do |f| %>
+
+  <fieldset>
+    <legend>Persona Natural</legend>
+    <div class="row">
+      
+      <div class="small-4 columns<%= acreedor.errors[:Nombres].any? ? " error" : "" %>">
+        <label>Nombres <small>*</small>
+        <%= f.text_field :Nombres %>   
+        <% unless acreedor.errors[:Nombres].blank? %>
+                <small class='error'><%= acreedor.errors[:Nombres].join(", ").html_safe %></small>
+        <% end %>
+        </label>
+      </div>
+
+      <div class="small-4 columns">
+        <%= f.label :Appaterno,"Apellido Paterno" %>
+        <%= f.text_field :Appaterno %>
+      </div>
+    
+      <div class="small-4 columns">
+          <%= f.label :Apmaterno,"Apellido Materno" %>
+          <%= f.text_field :Apmaterno %>
+      </div>
+
+    </div>
+
+    
+
+    <div class="row">  
+      <div class="small-3 columns">
+        <%= f.label :estadocivil,"Estado Civil" %>        
+        <%= f.collection_select :estadocivil, Empleado::HESTADOCIVIL, :first, :last, prompt: false %>        
+      </div>
+
+      <div class="small-4 columns<%= acreedor.errors[:Apcasada].any? ? " error" : "" %>">
+        <%= f.label :Apcasada,"Apellido Casada" %>
+        <%= f.text_field :Apcasada %>
+        <% unless acreedor.errors[:Apcasada].blank? %>
+                <small class='error'><%= acreedor.errors[:Apcasada].join(", ").html_safe %></small>
+        <% end %>
+      </div>
+      <div class="small-4 columns">
+        
+      </div>
+    </div>
+
+    <div class="row">  
+      <div class="small-3 columns<%= acreedor.errors[:fechanacimiento].any? ? " error" : "" %>">
+        <%= f.label :fechanacimiento,"Fecha de Nacimiento" %>
+        <% if acreedor.fechanacimiento != nil %>      
+          <%= f.date_field :fechanacimiento, :default => acreedor.fechanacimiento.strftime("%d/%m/%Y") %>
+        <% else %>
+          <%= f.date_field :fechanacimiento, :default => Time.now.strftime("%d/%m/%Y") %>
+        <% end %>
+        <% unless acreedor.errors[:fechanacimiento].blank? %>
+                <small class='error'><%= acreedor.errors[:fechanacimiento].join(", ").html_safe %></small>
+        <% end %>
+      </div>
+      <div class="small-4 columns">
+        <%= f.label :genero, "Genero" %> 
+             
+        <%= f.collection_radio_buttons(:genero, Empleado::HGENERO, :first, :last, prompt: true) do |b| %>          
+          <%= b.label(:"data-value" => b.value) { b.radio_button + b.text } %>
+           
+        <% end %>
+      </div>
+      <div class="small-5 columns">
+      </div>
+
+    </div>
+
+    <div class="row">  
+      <div class="small-5 columns<%= acreedor.errors[:Di].any? ? " error" : "" %>">
+        <div class="row collapse">
+          <%= f.label :Di, "Documento de Identificacion" %>
+           <div class="small-2 columns">
+            <%= f.select :Dociden_id, @dis.map{ |c| [c.Sigla, "#{c.id}"] } %>
+          </div>
+          <div class="small-5 columns">
+            <%= f.text_field :Di %>
+            <% unless acreedor.errors[:Di].blank? %>
+                <small class='error'><%= acreedor.errors[:Di].join(", ").html_safe %></small>
+            <% end %>
+          </div>
+          <div class="small-2 columns">
+           <%= collection_select(:post, :docidenexts_id, Docidenext.all, :id, :Sigla) %>
+          </div>
+          <div class="small-3 columns">
+           
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row">  
+      <div class="small-3 columns<%= acreedor.errors[:Telefono].any? ? " error" : "" %>">
+        <%= f.label :Telefono %>
+        <%= f.text_field :Telefono %>
+        <% unless acreedor.errors[:Telefono].blank? %>
+                <small class='error'><%= acreedor.errors[:Telefono].join(", ").html_safe %></small>
+        <% end %>
+      </div>
+      <div class="small-4 columns<%= acreedor.errors[:Correo].any? ? " error" : "" %>">
+        <%= f.label :Correo %>
+        <%= f.text_field :Correo %>
+        <% unless acreedor.errors[:Correo].blank? %>
+                <small class='error'><%= acreedor.errors[:Correo].join(", ").html_safe %></small>
+        <% end %>
+      </div>
+      <div class="small-5 columns">
+     
+      </div>
+
+    </div>
+  </fieldset>
+<%= f.hidden_field :esjuridica, :value => f.object.esjuridica %> 
+  
+  <%= f.submit 'Grabar', :class => 'small button' %>
+<% end %>
