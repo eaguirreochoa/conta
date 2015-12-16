@@ -25,7 +25,7 @@ Ubicaciongeografica.delete_all
 open("ubicaciongeografica.txt") do |ubicaciongeograficas|
   ubicaciongeograficas.read.each_line do |ubicaciongeografica|
     code, codigodept, codigoprov, codigoloca, nombredept, nombreprov, nombreloca, fini, ffin = ubicaciongeografica.chomp.split("|")
-    Ubicaciongeografica.create!(:Codigodept => codigodept, :Codigoprov => codigoprov, :Codigoloca => codigoloca, :Nombredept => nombredept, :Nombreprov => nombreprov, :Nombreloca => nombreloca, :created_at => fini, :updated_at => ffin, :Activo => "1")
+    Ubicaciongeografica.create!(:codigodept => codigodept, :codigoprov => codigoprov, :codigoloca => codigoloca, :nombredept => nombredept, :nombreprov => nombreprov, :nombreloca => nombreloca, :created_at => fini, :updated_at => ffin, :activo => "1")
   end
 end
 
@@ -33,7 +33,7 @@ Oficina.delete_all
 open("oficina.txt") do |oficinas|
   oficinas.read.each_line do |oficina|
     code, codigo, nombre, sigla, direccion, telefono, correo, activo, fini, ffin = oficina.chomp.split("|")
-    Oficina.create!(:Codigo => codigo, :Nombre => nombre, :Sigla => sigla, :Direccion => direccion, :Telefono => telefono, :Correo => correo, :Activo => activo, :created_at => fini, :updated_at => ffin)
+    Oficina.create!(:codigo => codigo, :nombre => nombre, :sigla => sigla, :direccion => direccion, :telefono => telefono, :correo => correo, :activo => activo, :created_at => fini, :updated_at => ffin)
   end
 end
 
@@ -42,7 +42,7 @@ Cargo.delete_all
 open("cargo.txt") do |cargos|
   cargos.read.each_line do |cargo|
     codigo, nombre, activo = cargo.chomp.split("|")
-    Cargo.create!(:Codigo => codigo, :Nombre => nombre, :Activo => activo, :created_at => "2015-05-11 23:33:28", :updated_at => "2015-05-11 23:33:28")
+    Cargo.create!(:codigo => codigo, :nombre => nombre, :activo => activo, :created_at => "2015-05-11 23:33:28", :updated_at => "2015-05-11 23:33:28")
   end
 end
 
@@ -51,7 +51,7 @@ Dociden.delete_all
 open("di.txt") do |dis|
   dis.read.each_line do |di|
     codigo, nombre, mascara, activo = di.chomp.split("|")
-    Dociden.create!(:Codigo => codigo, :Nombre => nombre, :Sigla => codigo, :Formato => mascara, :Activo => activo, :created_at => "2015-05-11 23:33:28", :updated_at => "2015-05-11 23:33:28")
+    Dociden.create!(:codigo => codigo, :nombre => nombre, :sigla => codigo, :formato => mascara, :activo => activo, :created_at => "2015-05-11 23:33:28", :updated_at => "2015-05-11 23:33:28")
   end
 end
 
@@ -60,7 +60,7 @@ Docidenext.delete_all
 open("diex.txt") do |ds|
   ds.read.each_line do |d|
     codigo, nombre, activo = d.chomp.split("|")
-    Docidenext.create!(:Codigo => codigo, :Nombre => nombre, :Sigla => codigo, :Activo => activo, :created_at => "2015-05-11 23:33:28", :updated_at => "2015-05-11 23:33:28")
+    Docidenext.create!(:codigo => codigo, :nombre => nombre, :sigla => codigo, :activo => activo, :created_at => "2015-05-11 23:33:28", :updated_at => "2015-05-11 23:33:28")
   end
 end
 

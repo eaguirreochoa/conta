@@ -3,7 +3,7 @@ class CreatePeriodos < ActiveRecord::Migration
     create_table :periodos do |t|
       t.datetime :fini
       t.datetime :ffin
-      t.string :nro, limit: 2
+      t.integer :nro
       t.string :gestion, limit: 5
       t.boolean :activo
       t.references :empresa, index: true

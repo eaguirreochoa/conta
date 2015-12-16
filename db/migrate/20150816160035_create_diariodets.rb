@@ -2,9 +2,9 @@ class CreateDiariodets < ActiveRecord::Migration
   def change
     create_table :diariodets do |t|
       t.integer :tlaux1
-      t.string :codtlaux2
-      t.datetime :tlaux2
-      t.string :codtlaux2
+      t.integer :codtlaux2
+      t.integer :tlaux2
+      t.integer :codtlaux2
       t.string :glosa
       t.decimal :debe, :precision => 20, :scale => 8
       t.decimal :haber, :precision => 20, :scale => 8

@@ -1,14 +1,14 @@
 class CreateDocidenexts < ActiveRecord::Migration
   def change
     create_table :docidenexts do |t|
-      t.string :Codigo
-      t.string :Nombre
-      t.string :Sigla
-      t.boolean :Activo
-      t.references :Dociden, index: true
+      t.string :codigo
+      t.string :nombre
+      t.string :sigla
+      t.boolean :activo
+      t.references :dociden, index: true
 
       t.timestamps null: false
     end
-    add_foreign_key :docidenexts, :Docidens
+    add_foreign_key :docidenexts, :docidens
   end
 end

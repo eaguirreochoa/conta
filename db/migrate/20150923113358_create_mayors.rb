@@ -15,9 +15,9 @@ class CreateMayors < ActiveRecord::Migration
       t.string :tipocbte
       t.integer :nrocbte
       t.integer :tlaux1
-      t.string :codtlaux1
+      t.integer :codtlaux1
       t.integer :tlaux2
-      t.string :codtlaux2
+      t.integer :codtlaux2
       t.string :glosa
       t.boolean :esdebito
       t.decimal :debe, :precision => 20, :scale => 8

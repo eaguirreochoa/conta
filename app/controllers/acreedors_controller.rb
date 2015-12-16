@@ -4,7 +4,7 @@ class AcreedorsController < ApplicationController
   # GET /acreedors
   # GET /acreedors.json
   def index
-    @acreedors = Acreedor.all
+    #@acreedors = Acreedor.all
   end
 
   # GET /acreedors/1

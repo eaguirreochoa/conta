@@ -9,9 +9,9 @@ class CreateBalanceGrals < ActiveRecord::Migration
       t.integer :catalogo_id
       t.integer :ciclo_id
       t.integer :tlaux1
-      t.string :codtlaux1
+      t.integer :codtlaux1
       t.integer :tlaux2
-      t.string :codtlaux2
+      t.integer :codtlaux2
       t.integer :padre_id
       t.string :codigo
       t.string :tipo, :limit => 3

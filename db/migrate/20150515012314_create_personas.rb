@@ -1,23 +1,23 @@
 class CreatePersonas < ActiveRecord::Migration
   def change
     create_table :personas do |t|
-      t.string :Codigo
-      t.string :Nombres
-      t.string :Appaterno
-      t.string :Apmaterno
-      t.string :Apcasada
-      t.string :Di
-      t.string :Telefono
-      t.string :Correo
+      t.string :codigo
+      t.string :nombres
+      t.string :appaterno
+      t.string :apmaterno
+      t.string :apcasada
+      t.string :di
+      t.string :telefono
+      t.string :correo
       t.string :type
-      t.references :Oficina, index: true
-      t.references :Cargo, index: true
-      t.references :Dociden, index: true
+      t.references :oficina, index: true
+      t.references :cargo, index: true
+      t.references :dociden, index: true
 
       t.timestamps null: false
     end
-    add_foreign_key :personas, :Oficinas
-    add_foreign_key :personas, :Cargos
-    add_foreign_key :personas, :Docidens
+    add_foreign_key :personas, :oficinas
+    add_foreign_key :personas, :cargos
+    add_foreign_key :personas, :docidens
   end
 end

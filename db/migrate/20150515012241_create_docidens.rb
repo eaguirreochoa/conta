@@ -1,11 +1,11 @@
 class CreateDocidens < ActiveRecord::Migration
   def change
     create_table :docidens do |t|
-      t.string :Codigo
-      t.string :Nombre
-      t.string :Sigla
-      t.string :Formato
-      t.boolean :Activo
+      t.string :codigo
+      t.string :nombre
+      t.string :sigla
+      t.string :formato
+      t.boolean :activo
 
       t.timestamps null: false
     end
